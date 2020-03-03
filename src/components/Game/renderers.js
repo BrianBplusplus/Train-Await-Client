@@ -5,13 +5,14 @@ class Box extends PureComponent {
     const size = 50;
     const x = this.props.x - size / 2;
     const y = this.props.y - size / 2;
+    const color = this.props.color;
     return (
       <div
         style={{
           position: "absolute",
           width: size,
           height: size,
-          backgroundColor: "#e2d86f",
+          backgroundColor: color,
           left: x,
           top: y
         }}
