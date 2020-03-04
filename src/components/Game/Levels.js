@@ -4,6 +4,21 @@ import { Box } from "./components/Game/renderers";
 
 export default class Levels extends Component {
   render() {
+    // const boxData = {
+    //   up: false,
+    //   right: false,
+    //   down: true,
+    //   left: true
+    // };
+
+    const squareData = [false, false, true, true]; // tuple
+
+    function rotateClockwise(tile) {
+      const [up, right, down, left] = tile;
+
+      return [left, up, right, down];
+    }
+
     return (entities = {
       //-- Notice that each entity has a unique id (required)
       //-- and a renderer property (optional). If no renderer

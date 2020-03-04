@@ -7,10 +7,15 @@ const MoveBox = (entities, { input }) => {
   const { payload } = input.find(x => x.name === "onClick") || {};
 
   if (payload) {
-    const box1 = entities["box1"];
-
-    box1.x = payload.pageX;
-    box1.y = payload.pageY;
+    if (payload.target.className === "up") {
+      payload.target.className = "right";
+    } else if (payload.target.className === "right") {
+      payload.target.className = "down";
+    } else if (payload.target.className === "down") {
+      payload.target.className = "left";
+    } else if (payload.target.className === "left") {
+      payload.target.className = "up";
+    }
   }
 
   return entities;

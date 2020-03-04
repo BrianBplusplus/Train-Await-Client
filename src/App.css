@@ -1,65 +1,16 @@
-.boxGrid {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 33% 33% 33%;
-}
-
-.boxGridTop {
-  grid-column-start: 2;
-  grid-column-end: 2;
-
-  grid-row-start: 1;
-  grid-row-end: 1;
-
-  justify-self: center;
-}
-
-.boxGridLeft {
-  grid-column-start: 1;
-  grid-column-end: 1;
-
-  grid-row-start: 2;
-  grid-row-end: 2;
-
-  justify-self: start;
-  align-self: center;
-}
-
-.boxGridRight {
-  grid-column-start: 3;
-  grid-column-end: 3;
-
-  grid-row-start: 2;
-  grid-row-end: 2;
-
-  justify-self: end;
-  align-self: center;
-}
-
-.boxGridBottom {
-  grid-column-start: 2;
-  grid-column-end: 2;
-
-  grid-row-start: 3;
-  grid-row-end: 3;
-
-  justify-self: center;
-  align-self: end;
-}
-
-.boxPositionOne {
+.up {
   transform: rotate(0deg);
 }
 
-.boxPositionTwo {
+.right {
   transform: rotate(90deg);
 }
 
-.boxPositionThree {
+.down {
   transform: rotate(180deg);
 }
 
-.boxPositionFour {
+.left {
   transform: rotate(270deg);
 }
 
