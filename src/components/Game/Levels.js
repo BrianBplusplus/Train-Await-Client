@@ -8,7 +8,13 @@ export default class Levels extends Component {
       //-- Notice that each entity has a unique id (required)
       //-- and a renderer property (optional). If no renderer
       //-- is supplied with the entity - it won't get displayed.
-      box1: { x: 75, y: 100, color: "#e2d86f", renderer: <Box /> },
+      box1: {
+        class: boxPositionOne,
+        x: 75,
+        y: 100,
+        color: "#e2d86f",
+        renderer: <Box />
+      },
       box2: { x: 75, y: 200, color: "red", renderer: <Box /> },
       box3: { x: 75, y: 300, color: "red", renderer: <Box /> },
       box4: { x: 175, y: 100, color: "red", renderer: <Box /> },

@@ -9,6 +9,7 @@ class Box extends PureComponent {
 
     return (
       <div
+        className={this.props.class}
         style={{
           position: "absolute",
           width: size,
@@ -19,27 +20,16 @@ class Box extends PureComponent {
         }}
       >
         <div
+          className="boxGrid"
           style={{
-            display: "flex",
-            justifyContent: "space-between",
             width: size,
             height: size
           }}
         >
-          <div className="rowOne">
-            <div>X</div>
-            <div>O</div>
-            <div>X</div>
-          </div>
-          <div className="rowTwo">
-            <div>X</div>
-            <div>X</div>
-          </div>
-          <div className="rowTwo">
-            <div>X</div>
-            <div>O</div>
-            <div>X</div>
-          </div>
+          <div className="boxGridTop">1</div>
+          <div className="boxGridLeft">2</div>
+          <div className="boxGridRight">3</div>
+          <div className="boxGridBottom">4</div>
         </div>
       </div>
     );
