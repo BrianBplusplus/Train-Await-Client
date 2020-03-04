@@ -7,13 +7,24 @@ const MoveBox = (entities, { input }) => {
   const { payload } = input.find(x => x.name === "onClick") || {};
 
   if (payload) {
-    const box2 = entities["box2"];
+    const box1 = entities["box1"];
 
-    box2.x = payload.pageX;
-    box2.y = payload.pageY;
+    box1.x = payload.pageX;
+    box1.y = payload.pageY;
   }
 
   return entities;
 };
 
-export { MoveBox };
+const RotateBox = (entities, { input }) => {
+  const { payload } = input.find(x => x.name === "onClick") || {};
+
+  if (payload) {
+    const box2 = entities["box2"];
+
+    box2.x = payload.pageX;
+    box2.y = payload.pageY;
+  }
+};
+
+export { MoveBox, RotateBox };
