@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Tile extends Component {
+export default class L_TILE extends Component {
   state = {
     class: "up",
     tileData: [null, true, true, null]
