@@ -1,4 +1,4 @@
-const RotateBox = (entities, { input }) => {
+const RotateTile = (entities, { input }) => {
   //-- I'm choosing to update the game state (entities) directly for the sake of brevity and simplicity.
   //-- There's nothing stopping you from treating the game state as immutable and returning a copy..
   //-- Example: return { ...entities, t.id: { UPDATED COMPONENTS }};
@@ -21,4 +21,4 @@ const RotateBox = (entities, { input }) => {
   return entities;
 };
 
-export { RotateBox };
+export { RotateTile };

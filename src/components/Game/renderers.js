@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-class Box extends PureComponent {
+class Tile extends PureComponent {
   render() {
     const size = 90;
     const x = this.props.x - size / 2;
@@ -27,4 +27,4 @@ class Box extends PureComponent {
   }
 }
 
-export { Box };
+export { Tile };

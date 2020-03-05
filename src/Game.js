@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import { GameEngine } from "react-game-engine";
-import { Box } from "./components/Game/renderers";
-import { RotateBox } from "./components/Game/systems";
+import { Tile } from "./components/Game/renderers";
+import { RotateTile } from "./components/Game/systems";
 import image01 from "./images/TrainTrackTest.jpeg";
 
 export class Game extends Component {
@@ -10,73 +10,73 @@ export class Game extends Component {
     return (
       <GameEngine
         style={{ width: 340, height: 600, backgroundColor: "#5ca08e" }}
-        systems={[RotateBox]}
+        systems={[RotateTile]}
         entities={{
           //-- Notice that each entity has a unique id (required)
           //-- and a renderer property (optional). If no renderer
           //-- is supplied with the entity - it won't get displayed.
-          box1: {
+          tile1: {
             class: "right",
             x: 75,
             y: 100,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box2: {
+          tile2: {
             class: "up",
             x: 75,
             y: 200,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box3: {
+          tile3: {
             class: "down",
             x: 75,
             y: 300,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box4: {
+          tile4: {
             class: "up",
             x: 175,
             y: 100,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box5: {
+          tile5: {
             class: "up",
             x: 175,
             y: 200,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box6: {
+          tile6: {
             class: "up",
             x: 175,
             y: 300,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box7: {
+          tile7: {
             class: "up",
             x: 275,
             y: 100,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box8: {
+          tile8: {
             class: "left",
             x: 275,
             y: 200,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           },
-          box9: {
+          tile9: {
             class: "up",
             x: 275,
             y: 300,
             image: image01,
-            renderer: <Box />
+            renderer: <Tile />
           }
         }}
       ></GameEngine>
