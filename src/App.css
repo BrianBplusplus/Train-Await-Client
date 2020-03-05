@@ -3,15 +3,15 @@
 }
 
 .right {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 
 .down {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 .left {
-  transform: rotate(270deg);
+  transform: rotate(135deg);
 }
 
 @keyframes rotation {

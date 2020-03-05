@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/* import React, { Component } from "react";
 
 import { GameEngine } from "react-game-engine";
 import { Tile } from "./components/Game/renderers";
@@ -11,7 +11,9 @@ export class Game extends Component {
       <GameEngine
         style={{ width: 340, height: 600, backgroundColor: "#5ca08e" }}
         systems={[RotateTile]}
-        entities={{
+        entities={
+          [<Tile />]
+          /*{
           //-- Notice that each entity has a unique id (required)
           //-- and a renderer property (optional). If no renderer
           //-- is supplied with the entity - it won't get displayed.
@@ -78,10 +80,13 @@ export class Game extends Component {
             image: image01,
             renderer: <Tile />
           }
-        }}
+        }
+        }
       ></GameEngine>
     );
   }
 }
 
 export default Game;
+
+*/
