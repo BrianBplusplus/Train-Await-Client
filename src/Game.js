@@ -2,14 +2,15 @@ import React, { Component } from "react";
 
 import { GameEngine } from "react-game-engine";
 import { Box } from "./components/Game/renderers";
-import { MoveBox, RotateBox } from "./components/Game/systems";
+import { RotateBox } from "./components/Game/systems";
+import image01 from "./images/TrainTrackTest.jpeg";
 
 export class Game extends Component {
   render() {
     return (
       <GameEngine
         style={{ width: 340, height: 600, backgroundColor: "#5ca08e" }}
-        systems={[MoveBox]}
+        systems={[RotateBox]}
         entities={{
           //-- Notice that each entity has a unique id (required)
           //-- and a renderer property (optional). If no renderer
@@ -18,57 +19,63 @@ export class Game extends Component {
             class: "right",
             x: 75,
             y: 100,
-            color: "blue",
+            image: image01,
             renderer: <Box />
           },
-          box2: { class: "up", x: 75, y: 200, color: "red", renderer: <Box /> },
+          box2: {
+            class: "up",
+            x: 75,
+            y: 200,
+            image: image01,
+            renderer: <Box />
+          },
           box3: {
             class: "down",
             x: 75,
             y: 300,
-            color: "pink",
+            image: image01,
             renderer: <Box />
           },
           box4: {
             class: "up",
             x: 175,
             y: 100,
-            color: "yellow",
+            image: image01,
             renderer: <Box />
           },
           box5: {
             class: "up",
             x: 175,
             y: 200,
-            color: "green",
+            image: image01,
             renderer: <Box />
           },
           box6: {
             class: "up",
             x: 175,
             y: 300,
-            color: "orange",
+            image: image01,
             renderer: <Box />
           },
           box7: {
             class: "up",
             x: 275,
             y: 100,
-            color: "purple",
+            image: image01,
             renderer: <Box />
           },
           box8: {
             class: "left",
             x: 275,
             y: 200,
-            color: "brown",
+            image: image01,
             renderer: <Box />
           },
           box9: {
             class: "up",
             x: 275,
             y: 300,
-            color: "gray",
+            image: image01,
             renderer: <Box />
           }
         }}

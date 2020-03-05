@@ -5,7 +5,6 @@ class Box extends PureComponent {
     const size = 90;
     const x = this.props.x - size / 2;
     const y = this.props.y - size / 2;
-    const color = this.props.color;
 
     return (
       <div
@@ -14,12 +13,15 @@ class Box extends PureComponent {
           position: "absolute",
           width: size,
           height: size,
-          backgroundColor: color,
           left: x,
           top: y
         }}
       >
-        Hola
+        <img
+          className={this.props.class}
+          src={this.props.image}
+          alt="temporary"
+        />
       </div>
     );
   }

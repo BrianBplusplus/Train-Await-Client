@@ -1,4 +1,4 @@
-const MoveBox = (entities, { input }) => {
+const RotateBox = (entities, { input }) => {
   //-- I'm choosing to update the game state (entities) directly for the sake of brevity and simplicity.
   //-- There's nothing stopping you from treating the game state as immutable and returning a copy..
   //-- Example: return { ...entities, t.id: { UPDATED COMPONENTS }};
@@ -21,15 +21,4 @@ const MoveBox = (entities, { input }) => {
   return entities;
 };
 
-const RotateBox = (entities, { input }) => {
-  const { payload } = input.find(x => x.name === "onClick") || {};
-
-  if (payload) {
-    const box2 = entities["box2"];
-
-    box2.x = payload.pageX;
-    box2.y = payload.pageY;
-  }
-};
-
-export { MoveBox, RotateBox };
+export { RotateBox };
