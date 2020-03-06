@@ -1,21 +1,16 @@
 import React, { Component } from "react";
+import image from "../../../images/TrainTrackTest2.jpeg";
 
 export default class I_TILE extends Component {
   state = {
-    class: "up",
-    tileData: [true, null, true, null]
+    class: this.props.class,
+    tileData: this.props.tileData
   };
 
   handleClick = () => {
     function rotateClockwise([up, right, down, left]) {
       return [left, up, right, down];
     }
-
-    console.log(
-      "tileData after rotating",
-      rotateClockwise(this.state.tileData)
-    );
-
     const rotatedTileData = rotateClockwise(this.state.tileData);
 
     switch (this.state.class) {
@@ -69,11 +64,7 @@ export default class I_TILE extends Component {
           top: y
         }}
       >
-        <img
-          className={this.state.class}
-          src={this.props.image}
-          alt="temporary"
-        />
+        <img className={this.state.class} src={image} alt="temporary" />
       </div>
     );
   }

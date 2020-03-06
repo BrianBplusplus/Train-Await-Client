@@ -1,33 +1,40 @@
 import React, { Component } from "react";
-
-import image01 from "../../images/TrainTrackTest.jpeg";
-import image02 from "../../images/TrainTrackTest2.jpeg";
+import { connect } from "react-redux";
+import { startLevel } from "../../store/levels/action";
 
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
 
-export default class Levels extends Component {
+const level1 = [
+  [
+    <L_TILE tileData={[null, true, true, null]} class="up" x={150} y={150} />,
+    <L_TILE tileData={[true, true, null, null]} class="left" x={250} y={150} />,
+    <L_TILE tileData={[true, true, null, null]} class="left" x={350} y={150} />
+  ],
+  [
+    <L_TILE tileData={[null, true, true, null]} class="up" x={150} y={250} />,
+    <L_TILE tileData={[true, true, null, null]} class="left" x={250} y={250} />,
+    <I_TILE tileData={[true, null, true, null]} class="down" x={350} y={250} />
+  ],
+  [
+    <L_TILE tileData={[true, null, null, true]} class="down" x={150} y={350} />,
+    <I_TILE tileData={[null, true, null, true]} class="left" x={250} y={350} />,
+    <L_TILE tileData={[true, true, null, null]} class="left" x={350} y={350} />
+  ]
+];
+
+class Levels extends Component {
   render() {
-    return (
-      <div>
-        {[
-          [
-            <L_TILE key={1} id={1} x={150} y={150} image={image01} />,
-            <L_TILE key={2} id={2} x={250} y={150} image={image01} />,
-            <L_TILE key={3} id={3} x={350} y={150} image={image01} />
-          ],
-          [
-            <L_TILE key={4} id={4} x={150} y={250} image={image01} />,
-            <I_TILE key={5} id={5} x={250} y={250} image={image02} />,
-            <L_TILE key={6} id={6} x={350} y={250} image={image01} />
-          ],
-          [
-            <L_TILE key={7} id={7} x={150} y={350} image={image01} />,
-            <L_TILE key={8} id={8} x={250} y={350} image={image01} />,
-            <L_TILE key={9} id={9} x={350} y={350} image={image01} />
-          ]
-        ]}
-      </div>
-    );
+    if (this.props.levels.currentLevel === 0) {
+      this.props.startLevel(level1);
+      //return level1;
+    }
+    return level1;
   }
 }
+
+const mapStateToProps = state => ({ levels: state.levels });
+
+const mapDispatchToProps = { startLevel };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Levels);
