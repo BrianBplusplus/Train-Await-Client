@@ -17,9 +17,10 @@ export default (state = initialState, action = {}) => {
       console.log("action.payload", action.payload);
       const newState = {};
       newState.tiles = state.tiles.map((currentTile, index) => {
-        if (index + 1 === y) {
-          return currentTile.map(tegel => {
-            if (tegel.id === x) {
+        if (index === x) {
+          return currentTile.map((tegel, index) => {
+            if (index === y) {
+              console.log("Tile", tegel);
               console.log("reducer.old", tegel.tileData);
               const newTegel = { ...tegel };
               newTegel.tileData = rotatedTile;
