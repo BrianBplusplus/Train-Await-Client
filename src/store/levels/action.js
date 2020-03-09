@@ -8,13 +8,25 @@ const startLevelSuccess = tiles => ({
 
 export const startLevel = level => async (dispatch, getState) => {
   try {
-    console.log("Level payload", level);
-    const onlyProps = level.map(level =>
-      level.map(tile => tile.props.tileData)
-    );
-    console.log("onlyProps payload", onlyProps);
+    const onlyProps = level.map(level => level.map(tile => tile.props));
 
     dispatch(startLevelSuccess(onlyProps));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const ROTATE_TILE = "ROTATE_TILE";
+
+const rotateTileSuccess = (tile, x, y) => ({
+  type: ROTATE_TILE,
+  payload: { tile, x, y }
+});
+
+export const rotateTile = (rotatedTile, x, y) => async (dispatch, getState) => {
+  try {
+    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile);
+    dispatch(rotateTileSuccess(rotatedTile, x, y));
   } catch (error) {
     console.error(error);
   }

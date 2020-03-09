@@ -1,45 +1,39 @@
 import React, { Component } from "react";
 import image from "../../../images/TrainTrackTest.jpeg";
+import { connect } from "react-redux";
+import { rotateTile } from "../../../store/levels/action";
 
-export default class L_TILE extends Component {
+class L_TILE extends Component {
   state = {
     class: this.props.class,
     tileData: this.props.tileData
   };
 
   handleClick = () => {
-    function rotateClockwise([up, right, down, left]) {
-      return [left, up, right, down];
-    }
-
-    const rotatedTileData = rotateClockwise(this.state.tileData);
+    this.props.getIndex(this.props.tileData, this.props.id);
 
     switch (this.state.class) {
       case "up":
         this.setState({
-          class: "right",
-          tileData: rotatedTileData
+          class: "right"
         });
         break;
 
       case "right":
         this.setState({
-          class: "down",
-          tileData: rotatedTileData
+          class: "down"
         });
         break;
 
       case "down":
         this.setState({
-          class: "left",
-          tileData: rotatedTileData
+          class: "left"
         });
         break;
 
       case "left":
         this.setState({
-          class: "up",
-          tileData: rotatedTileData
+          class: "up"
         });
         break;
 
@@ -50,13 +44,14 @@ export default class L_TILE extends Component {
 
   render() {
     const size = 90;
-    const x = this.props.x - size / 2;
-    const y = this.props.y - size / 2;
+    const x = this.props.tileX - size / 2;
+    const y = this.props.tileY - size / 2;
 
     return (
       <div
         className={this.state.class}
         onClick={this.handleClick}
+        id={this.props.id}
         style={{
           position: "absolute",
           width: size,
@@ -70,3 +65,9 @@ export default class L_TILE extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ levels: state.levels });
+
+const mapDispatchToProps = { rotateTile };
+
+export default connect(mapStateToProps, mapDispatchToProps)(L_TILE);

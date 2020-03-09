@@ -8,13 +8,19 @@ export class GameContainer extends Component {
     console.log("play game has been pressed");
   };
 
+  clickOnTile = () => {
+    const x = 1;
+    const y = 1;
+    console.log("clicked on", x, y, this.props.levels.tiles[x][y]);
+  };
+
   render() {
-    console.log("this.props", this.props);
+    console.log(this.props);
     return (
       <div>
         Hola
         <Levels />
-        <button onClick={this.playGame}>Play!</button>
+        <button onClick={this.clickOnTile}>Play!</button>
       </div>
     );
   }

@@ -49,8 +49,8 @@ export default class I_TILE extends Component {
 
   render() {
     const size = 90;
-    const x = this.props.x - size / 2;
-    const y = this.props.y - size / 2;
+    const x = this.props.tileX - size / 2;
+    const y = this.props.tileY - size / 2;
 
     return (
       <div
