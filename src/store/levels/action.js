@@ -18,9 +18,9 @@ export const startLevel = level => async (dispatch, getState) => {
 
 export const ROTATE_TILE = "ROTATE_TILE";
 
-const rotateTileSuccess = (tile, x, y) => ({
+const rotateTileSuccess = (rotatedTile, x, y) => ({
   type: ROTATE_TILE,
-  payload: { tile, x, y }
+  payload: { rotatedTile, x, y }
 });
 
 export const rotateTile = (rotatedTile, x, y) => async (dispatch, getState) => {

@@ -13,28 +13,29 @@ export default (state = initialState, action = {}) => {
     }
 
     case ROTATE_TILE: {
-      const { x, y, tile } = action.payload;
+      const { x, y, rotatedTile } = action.payload;
+      console.log("action.payload", action.payload);
       const newState = {};
-      newState.tiles = state.tiles.map((t, i) => {
-        if (i + 1 === y) {
-          return t.map(tegel => {
+      newState.tiles = state.tiles.map((currentTile, index) => {
+        if (index + 1 === y) {
+          return currentTile.map(tegel => {
             if (tegel.id === x) {
-              console.log("old", tegel);
-
+              console.log("reducer.old", tegel.tileData);
               const newTegel = { ...tegel };
-              console.log("newTegel.tileData", newTegel);
-              newTegel.tileData = tile;
+              newTegel.tileData = rotatedTile;
+              console.log("reducer.new", newTegel.tileData);
+
               return newTegel; //action.payload.tile
             }
             return tegel;
           });
         }
-        return t;
+        return currentTile;
       });
 
-      console.log("new state", newState);
+      console.log("new state", newState.tiles);
 
-      //newState.levels.tiles = []; //sstate.levels.tiles.map(t => t);
+      //newState.levels.tiles = []; //sstate.levels.tiles.map(currentTile => currentTile);
       return newState;
     }
 
