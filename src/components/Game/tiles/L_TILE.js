@@ -8,7 +8,7 @@ export default class L_TILE extends Component {
   };
 
   handleClick = () => {
-    this.props.getIndex(this.props.tileData, this.props.id);
+    this.props.rotateHandler(this.props.tileData, this.props.id);
 
     switch (this.state.class) {
       case "up":

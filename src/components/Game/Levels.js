@@ -6,30 +6,6 @@ import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
 
 class Levels extends Component {
-  /*  getIndex = (tileData, tileId) => {
-    console.log("--------------------");
-    // Index finding
-    this.props.levels.tiles.map(mappedRows => {
-      mappedRows.map(mappedTile => {
-        if (mappedTile.id === tileId) {
-          const x = this.props.levels.tiles.indexOf(mappedRows);
-          const y = mappedRows.indexOf(mappedTile);
-
-          console.log("tile before rotating", tileData);
-
-          function rotateClockwise([up, right, down, left]) {
-            return [left, up, right, down];
-          }
-
-          const newTileData = rotateClockwise(tileData);
-          console.log("tile after rotating", newTileData);
-
-          this.props.rotateTile(newTileData, x, y);
-        }
-      });
-    });
-  };
-*/
   render() {
     const level1 = [
       [
