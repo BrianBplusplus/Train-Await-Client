@@ -35,7 +35,7 @@ export default (state = initialState, action = {}) => {
 
       console.log("new state", newState.tiles);
 
-      //newState.levels.tiles = []; //sstate.levels.tiles.map(currentTile => currentTile);
+      //newState.levels.tiles = []; //state.levels.tiles.map(currentTile => currentTile);
       return newState;
     }
 

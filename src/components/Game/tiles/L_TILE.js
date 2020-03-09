@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import image from "../../../images/TrainTrackTest.jpeg";
-import { connect } from "react-redux";
-import { rotateTile } from "../../../store/levels/action";
 
-class L_TILE extends Component {
+export default class L_TILE extends Component {
   state = {
     class: this.props.class,
     tileData: this.props.tileData
@@ -65,9 +63,3 @@ class L_TILE extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({ levels: state.levels });
-
-const mapDispatchToProps = { rotateTile };
-
-export default connect(mapStateToProps, mapDispatchToProps)(L_TILE);

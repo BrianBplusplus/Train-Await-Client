@@ -11,9 +11,7 @@ export class GameContainer extends Component {
   };
 
   getIndex = (tileData, tileId) => {
-    console.log(tileData, tileId);
-    console.log("--------------------");
-    // Index finding
+    console.log("------- getIndex ---------");
     this.props.levels.tiles.map(mappedRows => {
       mappedRows.map(mappedTile => {
         if (mappedTile.id === tileId) {
@@ -21,7 +19,6 @@ export class GameContainer extends Component {
           const y = mappedRows.indexOf(mappedTile);
 
           console.log("tile before rotating", tileData);
-
           function rotateClockwise([up, right, down, left]) {
             return [left, up, right, down];
           }
@@ -30,13 +27,16 @@ export class GameContainer extends Component {
           console.log("tile after rotating", newTileData);
 
           this.props.rotateTile(newTileData, x, y);
+          console.log("--------------------------");
         }
+        return null;
       });
+      return null;
     });
   };
 
   render() {
-    console.log("this.props.levels.tiles", this.props.levels.tiles);
+    console.log("this.props on GameContainer.js", this.props.levels.tiles);
     return (
       <div>
         Hola
