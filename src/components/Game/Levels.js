@@ -5,6 +5,8 @@ import { startLevel, rotateTile } from "../../store/levels/action";
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
 
+//somecomponentdidupdate
+
 class Levels extends Component {
   render() {
     const level1 = [
