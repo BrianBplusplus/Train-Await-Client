@@ -1,4 +1,5 @@
 export const playGame = tiles => {
+  console.clear();
   let currentTileY = 0;
   let currentTileX = 0;
   let entry = 0;
@@ -6,23 +7,57 @@ export const playGame = tiles => {
   let finishLevel = false;
 
   const playGameNextTile = (y, x, entry) => {
-    console.log("------ next tile ------");
-    console.log("x", x, "y", y, "entry", entry);
-    console.log("next tile tileId", tiles[y][x].id);
-    if (entry === 0) {
-      console.log("entered from the Top");
-    } else if (entry === 1) {
-      console.log("entered from the Right");
-    } else if (entry === 2) {
-      console.log("entered from the Bottom");
-    } else if (entry === 3 && tiles[y][x].tileData[entry] === true) {
-      console.log("entered from the Left");
+    if (!finishLevel) {
+      console.log("------ next tile ------");
+      console.log("x", x, "y", y, "entry", entry);
+      console.log("next tile tileId", tiles[y][x].id);
+
+      // Entered from top
+      if (entry === 0 && tiles[y][x].tileData[entry] === true) {
+        console.log("entered from the Top");
+        if (tiles[y][x].tileData[1] === true) {
+          console.log("exited from the Right");
+          const newX = x + 1;
+          playGameNextTile(y, newX, 3);
+        }
+        if (tiles[y][x].tileData[2] === true) {
+          console.log("exited from the Bottom");
+        }
+        if (tiles[y][x].tileData[3] === true) {
+          console.log("exited from the Left");
+        }
+      }
+      // Entered from the Right
+      else if (entry === 1) {
+        console.log("entered from the Right");
+      }
+      // Entered from the Bottom
+      else if (entry === 2) {
+        console.log("entered from the Bottom");
+      }
+      // Entered from the Left
+      else if (entry === 3 && tiles[y][x].tileData[entry] === true) {
+        console.log("entered from the Left");
+        if (tiles[y][x].tileData[0] === true) {
+          console.log("exited from the Top");
+        }
+        if (tiles[y][x].tileData[1] === true) {
+          console.log("exited from the Right");
+        }
+        if (tiles[y][x].tileData[2] === true) {
+          console.log("exited from the Bottom");
+          const newY = y + 1;
+          playGameNextTile(newY, x, 0);
+        }
+      } else {
+        console.log("you have crashed!");
+      }
     } else {
-      console.log("you have crashed!");
+      console.log("You have finished the level!");
     }
   };
 
-  console.log("------ playGame --------");
+  console.log("------ playGame --------"); // initial move
   console.log("starting top left on tileId", tiles[currentTileX][currentTileY].id);
 
   if (tiles[currentTileY][currentTileX].tileData[0] === true) {
