@@ -22,27 +22,65 @@ export const playGame = tiles => {
         }
         if (tiles[y][x].tileData[2] === true) {
           console.log("exited from the Bottom");
+          const newY = y + 1;
+          playGameNextTile(newY, x, 0);
         }
         if (tiles[y][x].tileData[3] === true) {
           console.log("exited from the Left");
+          const newX = x - 1;
+          playGameNextTile(y, newX, 1);
         }
       }
       // Entered from the Right
-      else if (entry === 1) {
+      else if (entry === 1 && tiles[y][x].tileData[entry] === true) {
         console.log("entered from the Right");
+        if (tiles[y][x].tileData[0] === true) {
+          console.log("exited from the Top");
+          const newY = y - 1;
+          playGameNextTile(newY, x, 2);
+        }
+        if (tiles[y][x].tileData[2] === true) {
+          console.log("exited from the Bottom");
+          const newY = y + 1;
+          playGameNextTile(newY, x, 0);
+        }
+        if (tiles[y][x].tileData[3] === true) {
+          console.log("exited from the Left");
+          const newX = x - 1;
+          playGameNextTile(y, newX, 1);
+        }
       }
       // Entered from the Bottom
-      else if (entry === 2) {
+      else if (entry === 2 && tiles[y][x].tileData[entry] === true) {
         console.log("entered from the Bottom");
+        if (tiles[y][x].tileData[0] === true) {
+          console.log("exited from the Top");
+          const newY = y - 1;
+          playGameNextTile(newY, x, 2);
+        }
+        if (tiles[y][x].tileData[1] === true) {
+          console.log("exited from the Right");
+          const newX = x + 1;
+          playGameNextTile(y, newX, 3);
+        }
+        if (tiles[y][x].tileData[3] === true) {
+          console.log("exited from the Left");
+          const newX = x - 1;
+          playGameNextTile(y, newX, 1);
+        }
       }
       // Entered from the Left
       else if (entry === 3 && tiles[y][x].tileData[entry] === true) {
         console.log("entered from the Left");
         if (tiles[y][x].tileData[0] === true) {
           console.log("exited from the Top");
+          const newY = y - 1;
+          playGameNextTile(newY, x, 2);
         }
         if (tiles[y][x].tileData[1] === true) {
           console.log("exited from the Right");
+          const newX = x + 1;
+          playGameNextTile(y, newX, 3);
         }
         if (tiles[y][x].tileData[2] === true) {
           console.log("exited from the Bottom");
