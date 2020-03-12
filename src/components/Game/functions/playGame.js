@@ -10,7 +10,12 @@ export const playGame = tiles => {
     if (!finishLevel) {
       console.log("------ next tile ------");
       console.log("x", x, "y", y, "entry", entry);
-      // console.log("next tile tileId", tiles[y][x].id);
+
+      // --Checks if the train has reached its correct destination
+      if (tiles[y][x].exit === true) {
+        console.log("exit has been reached, you have completed the level!");
+        return;
+      }
 
       // --Checks if the train is out of bounds--
       if (y >= tiles.length || y < 0) {
@@ -22,6 +27,7 @@ export const playGame = tiles => {
         return;
       }
 
+      console.log("next tile tileId", tiles[y][x].id);
       // Entered from top
       if (entry === 0 && tiles[y][x].tileData[entry] === true) {
         console.log("entered from the Top");

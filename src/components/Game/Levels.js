@@ -24,6 +24,11 @@ class Levels extends Component {
         <L_TILE shape={"L"} id={7} tileData={[true, null, null, true]} class="down" tileX={150} tileY={350} />,
         <I_TILE shape={"I"} id={8} tileData={[true, true, null, null]} class="left" tileX={250} tileY={350} />,
         <L_TILE shape={"L"} id={9} tileData={[true, true, null, null]} class="left" tileX={350} tileY={350} />
+      ],
+      [
+        <L_TILE shape={"L"} id={10} tileData={[true, null, null, true]} class="down" tileX={150} tileY={450} />,
+        <I_TILE shape={"I"} id={11} tileData={[true, true, null, null]} class="left" tileX={250} tileY={450} />,
+        <L_TILE shape={"L"} id={12} tileData={[true, true, null, null]} class="left" tileX={350} tileY={450} exit={true} />
       ]
     ];
 

@@ -50,6 +50,7 @@ export class GameContainer extends Component {
                   class={tile.class}
                   tileX={tile.tileX}
                   tileY={tile.tileY}
+                  tileExit={tile.exit}
                   rotateHandler={this.rotateHandler}
                 />
               );
