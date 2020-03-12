@@ -1,1 +1,24 @@
+.up {
+  transform: rotate(0deg);
+}
 
+.right {
+  transform: rotate(45deg);
+}
+
+.down {
+  transform: rotate(90deg);
+}
+
+.left {
+  transform: rotate(135deg);
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
