@@ -11,12 +11,6 @@ export const playGame = tiles => {
       console.log("------ next tile ------");
       console.log("x", x, "y", y, "entry", entry);
 
-      // --Checks if the train has reached its correct destination
-      if (tiles[y][x].exit === true) {
-        console.log("exit has been reached, you have completed the level!");
-        return;
-      }
-
       // --Checks if the train is out of bounds--
       if (y >= tiles.length || y < 0) {
         console.log("Out of bounds vertical");
@@ -24,6 +18,11 @@ export const playGame = tiles => {
       }
       if (x >= tiles[y].length || x < 0) {
         console.log("Out of bounds horizontal");
+        return;
+      }
+      // --Checks if the train has reached its correct destination
+      if (tiles[y][x].exit === true) {
+        console.log("exit has been reached, you have completed the level!");
         return;
       }
 
