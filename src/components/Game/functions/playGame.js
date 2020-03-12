@@ -10,7 +10,17 @@ export const playGame = tiles => {
     if (!finishLevel) {
       console.log("------ next tile ------");
       console.log("x", x, "y", y, "entry", entry);
-      console.log("next tile tileId", tiles[y][x].id);
+      // console.log("next tile tileId", tiles[y][x].id);
+
+      // --Checks if the train is out of bounds--
+      if (y >= tiles.length || y < 0) {
+        console.log("Out of bounds vertical");
+        return;
+      }
+      if (x >= tiles[y].length || x < 0) {
+        console.log("Out of bounds horizontal");
+        return;
+      }
 
       // Entered from top
       if (entry === 0 && tiles[y][x].tileData[entry] === true) {
