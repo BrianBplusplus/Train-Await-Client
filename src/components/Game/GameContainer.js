@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { rotateTile } from "../../store/levels/action";
-import { playGame } from "./functions/playGame"; // TODO: Import function correctly
 
 import Levels from "./Levels";
 import L_TILE from "./tiles/L_TILE";
+import Train from "./Train";
+
+import { rotateTile } from "../../store/levels/action";
+import { playGame } from "./functions/playGame";
 
 export class GameContainer extends Component {
-  rotateHandler = (tileData, tileId) => {
+  rotateHandler = (tileData, tileId, tileClass) => {
     console.log("----- rotateHandler -----");
     this.props.levels.tiles.map(mappedRows => {
       mappedRows.map(mappedTile => {
@@ -15,15 +17,29 @@ export class GameContainer extends Component {
           const x = this.props.levels.tiles.indexOf(mappedRows);
           const y = mappedRows.indexOf(mappedTile);
 
-          console.log("tile BEFORE", tileData);
+          console.log("tile BEFORE", tileData, tileClass);
           const rotateClockwise = ([up, right, down, left]) => {
             return [left, up, right, down];
           };
 
-          const newTileData = rotateClockwise(tileData);
-          console.log("tile AFTER", newTileData);
+          const rotateTileImage = tileClass => {
+            if (tileClass === "up") {
+              return "right";
+            } else if (tileClass === "right") {
+              return "down";
+            } else if (tileClass === "down") {
+              return "left";
+            } else if (tileClass === "left") {
+              return "up";
+            }
+            console.log("tileClass", tileClass);
+          };
 
-          this.props.rotateTile(newTileData, x, y);
+          const newTileData = rotateClockwise(tileData);
+          const newTileClass = rotateTileImage(tileClass);
+          console.log("tile AFTER", newTileData, newTileClass);
+
+          this.props.rotateTile(newTileData, x, y, newTileClass);
           console.log("-------------------------");
         }
         return null;
@@ -32,15 +48,22 @@ export class GameContainer extends Component {
     });
   };
 
+  moveTrain = () => {
+    console.log("moveTrain triggered");
+    console.log("this.x", Train);
+  };
+
   render() {
-    console.log("this.props on GameContainer.js", this.props.levels.tiles);
+    const { tiles } = this.props.levels;
+    console.log("this.props on GameContainer.js", tiles);
     return (
       <div>
         Hola
+        <Train moveTrain={this.moveTrain} x={135} y={90} />
         <Levels />
-        {!this.props.levels.tiles && <p>loading</p>}
-        {this.props.levels.tiles &&
-          this.props.levels.tiles.map(rows =>
+        {!tiles && <p>loading</p>}
+        {tiles &&
+          tiles.map(rows =>
             rows.map(tile => {
               return (
                 <L_TILE
@@ -57,6 +80,7 @@ export class GameContainer extends Component {
             })
           )}
         <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
+        <button onClick={() => this.moveTrain()}>moveTrain()</button>
       </div>
     );
   }

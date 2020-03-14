@@ -1,19 +1,28 @@
+img {
+  transition: transform 0.3s ease;
+}
+
 .up {
-  transform: rotate(0deg);
+  transform: rotate(0deg); /* 0 */
 }
 
 .right {
-  transform: rotate(45deg);
+  transform: rotate(90deg); /* 45 */
 }
 
 .down {
-  transform: rotate(90deg);
+  transform: rotate(180deg); /* 90 */
 }
 
 .left {
-  transform: rotate(135deg);
+  transform: rotate(270deg); /* 135 */
 }
 
+.up {
+  transform: rotate(360deg); /* 0 */
+}
+
+/*
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -22,3 +31,4 @@
     transform: rotate(90deg);
   }
 }
+*/

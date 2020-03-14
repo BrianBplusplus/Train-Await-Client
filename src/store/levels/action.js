@@ -1,4 +1,3 @@
-//Fetch all events action
 export const START_LEVEL = "START_LEVEL";
 
 const startLevelSuccess = tiles => ({
@@ -18,15 +17,15 @@ export const startLevel = level => async (dispatch, getState) => {
 
 export const ROTATE_TILE = "ROTATE_TILE";
 
-const rotateTileSuccess = (rotatedTile, x, y) => ({
+const rotateTileSuccess = (rotatedTile, x, y, rotatedClass) => ({
   type: ROTATE_TILE,
-  payload: { rotatedTile, x, y }
+  payload: { rotatedTile, x, y, rotatedClass }
 });
 
-export const rotateTile = (rotatedTile, x, y) => async (dispatch, getState) => {
+export const rotateTile = (rotatedTile, x, y, rotatedClass) => async (dispatch, getState) => {
   try {
-    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile);
-    dispatch(rotateTileSuccess(rotatedTile, x, y));
+    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new class is", rotatedClass);
+    dispatch(rotateTileSuccess(rotatedTile, x, y, rotatedClass));
   } catch (error) {
     console.error(error);
   }
