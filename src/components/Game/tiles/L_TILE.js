@@ -10,7 +10,6 @@ export default class L_TILE extends Component {
     const size = 90;
     const x = this.props.tileX - size / 2;
     const y = this.props.tileY - size / 2;
-    let rotation = 90;
 
     return (
       <div
@@ -22,7 +21,6 @@ export default class L_TILE extends Component {
           height: size,
           left: x,
           top: y
-          // transform: [{ rotate: `${rotation}deg` }]
         }}
       >
         <img className={this.props.class} src={image} alt="temporary" />

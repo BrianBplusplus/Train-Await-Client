@@ -23,7 +23,7 @@ export default (state = initialState, action = {}) => {
               const newTegel = { ...tegel };
               newTegel.tileData = rotatedTile;
               newTegel.class = rotatedClass;
-              console.log("reducer AFTER", newTegel.tileData, tegel.class);
+              console.log("reducer AFTER", newTegel.tileData, newTegel.class);
 
               return newTegel;
             }

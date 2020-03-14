@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import Levels from "./Levels";
 import L_TILE from "./tiles/L_TILE";
+import I_TILE from "./tiles/I_TILE";
 import Train from "./Train";
 
 import { rotateTile } from "../../store/levels/action";
@@ -22,7 +23,7 @@ export class GameContainer extends Component {
             return [left, up, right, down];
           };
 
-          const rotateTileImage = tileClass => {
+          const rotateTileClass = tileClass => {
             if (tileClass === "up") {
               return "right";
             } else if (tileClass === "right") {
@@ -32,11 +33,10 @@ export class GameContainer extends Component {
             } else if (tileClass === "left") {
               return "up";
             }
-            console.log("tileClass", tileClass);
           };
 
           const newTileData = rotateClockwise(tileData);
-          const newTileClass = rotateTileImage(tileClass);
+          const newTileClass = rotateTileClass(tileClass);
           console.log("tile AFTER", newTileData, newTileClass);
 
           this.props.rotateTile(newTileData, x, y, newTileClass);
@@ -65,18 +65,34 @@ export class GameContainer extends Component {
         {tiles &&
           tiles.map(rows =>
             rows.map(tile => {
-              return (
-                <L_TILE
-                  key={tile.id}
-                  id={tile.id}
-                  tileData={tile.tileData}
-                  class={tile.class}
-                  tileX={tile.tileX}
-                  tileY={tile.tileY}
-                  tileExit={tile.exit}
-                  rotateHandler={this.rotateHandler}
-                />
-              );
+              if (tile.shape === "L") {
+                return (
+                  <L_TILE
+                    key={tile.id}
+                    id={tile.id}
+                    tileData={tile.tileData}
+                    class={tile.class}
+                    tileX={tile.tileX}
+                    tileY={tile.tileY}
+                    tileExit={tile.exit}
+                    rotateHandler={this.rotateHandler}
+                  />
+                );
+              }
+              if (tile.shape === "I") {
+                return (
+                  <I_TILE
+                    key={tile.id}
+                    id={tile.id}
+                    tileData={tile.tileData}
+                    class={tile.class}
+                    tileX={tile.tileX}
+                    tileY={tile.tileY}
+                    tileExit={tile.exit}
+                    rotateHandler={this.rotateHandler}
+                  />
+                );
+              }
             })
           )}
         <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
