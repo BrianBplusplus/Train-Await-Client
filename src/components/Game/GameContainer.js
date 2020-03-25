@@ -19,6 +19,7 @@ export class GameContainer extends Component {
           const y = mappedRows.indexOf(mappedTile);
 
           console.log("tile BEFORE", tileData, tileClass);
+
           const rotateClockwise = ([up, right, down, left]) => {
             return [left, up, right, down];
           };
@@ -93,6 +94,7 @@ export class GameContainer extends Component {
                   />
                 );
               }
+              return null;
             })
           )}
         <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
