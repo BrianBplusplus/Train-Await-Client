@@ -1,4 +1,4 @@
-import { MOVE_TRAIN } from "./action";
+import { MOVE_TRAIN, RESET_TRAIN } from "./action";
 
 const initialState = { x: 135, y: 30 };
 
@@ -25,6 +25,10 @@ export default (state = initialState, action = {}) => {
         const newX = state.x - 100;
         return { ...state, x: newX };
       }
+    }
+
+    case RESET_TRAIN: {
+      return { state, x: 135, y: 30 };
     }
     default:
       return state;

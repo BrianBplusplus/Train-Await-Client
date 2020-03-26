@@ -12,3 +12,17 @@ export const moveTrain = direction => async (dispatch, getState) => {
     console.error(error);
   }
 };
+
+export const RESET_TRAIN = "RESET_TRAIN";
+
+const resetTrainSuccess = () => ({
+  type: RESET_TRAIN
+});
+
+export const resetTrain = () => async (dispatch, getState) => {
+  try {
+    dispatch(resetTrainSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};

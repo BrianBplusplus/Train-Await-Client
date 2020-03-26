@@ -1,5 +1,5 @@
 import store from "../../../store/store";
-import { moveTrain } from "../../../store/animation/action";
+import { moveTrain, resetTrain } from "../../../store/animation/action";
 
 export const playGame = tiles => {
   console.clear();
@@ -18,10 +18,12 @@ export const playGame = tiles => {
         // --Checks if the train is out of bounds--
         if (y >= tiles.length || y < 0) {
           console.log("Out of bounds vertical");
+          store.dispatch(resetTrain());
           return;
         }
         if (x >= tiles[y].length || x < 0) {
           console.log("Out of bounds horizontal");
+          store.dispatch(resetTrain());
           return;
         }
 
@@ -121,6 +123,7 @@ export const playGame = tiles => {
           }
         } else {
           console.log("you have crashed!");
+          store.dispatch(resetTrain());
         }
       } else {
         console.log("You have finished the level!");
