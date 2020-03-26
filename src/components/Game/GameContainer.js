@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Levels from "./Levels";
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
+import EXIT_TILE from "./tiles/EXIT_TILE";
 import Train from "./Train";
 
 import { rotateTile } from "../../store/levels/action";
@@ -75,7 +76,6 @@ export class GameContainer extends Component {
                     class={tile.class}
                     tileX={tile.tileX}
                     tileY={tile.tileY}
-                    tileExit={tile.exit}
                     rotateHandler={this.rotateHandler}
                   />
                 );
@@ -89,8 +89,21 @@ export class GameContainer extends Component {
                     class={tile.class}
                     tileX={tile.tileX}
                     tileY={tile.tileY}
-                    tileExit={tile.exit}
                     rotateHandler={this.rotateHandler}
+                  />
+                );
+              }
+
+              if (tile.shape === "EXIT") {
+                return (
+                  <EXIT_TILE
+                    key={tile.id}
+                    id={tile.id}
+                    tileData={tile.tileData}
+                    class={tile.class}
+                    tileX={tile.tileX}
+                    tileY={tile.tileY}
+                    tileExit={tile.exit}
                   />
                 );
               }

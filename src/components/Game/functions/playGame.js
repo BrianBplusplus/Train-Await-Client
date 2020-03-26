@@ -22,7 +22,7 @@ export const playGame = tiles => {
           return;
         }
 
-        // --Checks if the train has reached its correct destination
+        // --Checks if the train has reached its correct destination--
         if (tiles[y][x].exit === true) {
           console.log("exit has been reached, you have completed the level!");
           return;
@@ -35,17 +35,17 @@ export const playGame = tiles => {
           if (tiles[y][x].tileData[1] === true) {
             console.log("exited from the Right");
             const newX = x + 1;
-            setTimeout(() => playGameNextTile(y, newX, 3), 500);
+            playGameNextTile(y, newX, 3);
           }
           if (tiles[y][x].tileData[2] === true) {
             console.log("exited from the Bottom");
             const newY = y + 1;
-            setTimeout(() => playGameNextTile(newY, x, 0), 500);
+            playGameNextTile(newY, x, 0);
           }
           if (tiles[y][x].tileData[3] === true) {
             console.log("exited from the Left");
             const newX = x - 1;
-            setTimeout(() => playGameNextTile(y, newX, 1), 500);
+            playGameNextTile(y, newX, 1);
           }
         }
         // Entered from the Right

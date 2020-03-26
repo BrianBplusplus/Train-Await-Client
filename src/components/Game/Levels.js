@@ -4,6 +4,7 @@ import { startLevel, rotateTile } from "../../store/levels/action";
 
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
+import EXIT_TILE from "./tiles/EXIT_TILE";
 
 //somecomponentdidupdate
 
@@ -28,7 +29,7 @@ class Levels extends Component {
       [
         <L_TILE shape={"L"} id={10} tileData={[true, null, null, true]} class="down" tileX={150} tileY={450} />,
         <I_TILE shape={"I"} id={11} tileData={[null, true, null, true]} class="left" tileX={250} tileY={450} />,
-        <L_TILE shape={"L"} id={12} tileData={[true, true, null, null]} class="left" tileX={350} tileY={450} exit={true} />
+        <EXIT_TILE shape={"EXIT"} id={12} tileData={[true, null, null, true]} class="up" tileX={350} tileY={450} exit={true} />
       ]
     ];
 
