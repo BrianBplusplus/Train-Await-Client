@@ -8,7 +8,6 @@ import EXIT_TILE from "./tiles/EXIT_TILE";
 import Train from "./Train";
 
 import { rotateTile } from "../../store/levels/action";
-import { moveTrainRight } from "../../store/animation/action";
 import { playGame } from "./functions/playGame";
 
 export class GameContainer extends Component {
@@ -54,8 +53,6 @@ export class GameContainer extends Component {
   render() {
     const { tiles } = this.props.levels;
     const { train } = this.props;
-    console.log("this.props.tiles", tiles);
-    console.log("this.props.train", train);
     return (
       <div>
         Hola
@@ -108,7 +105,6 @@ export class GameContainer extends Component {
             })
           )}
         <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
-        <button onClick={() => this.props.moveTrainRight()}>redux test</button>
       </div>
     );
   }
@@ -116,6 +112,6 @@ export class GameContainer extends Component {
 
 const mapStateToProps = state => ({ levels: state.levels, train: state.train });
 
-const mapDispatchToProps = { rotateTile, moveTrainRight };
+const mapDispatchToProps = { rotateTile };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);

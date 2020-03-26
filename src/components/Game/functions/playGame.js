@@ -1,6 +1,5 @@
 import store from "../../../store/store";
-
-const state = store.getState();
+import { moveTrain } from "../../../store/animation/action";
 
 export const playGame = tiles => {
   console.clear();
@@ -9,8 +8,6 @@ export const playGame = tiles => {
   let entry = 0;
   let exit = 0;
   let finishLevel = false;
-
-  console.log("state", state.train.x);
 
   const playGameNextTile = (y, x, entry) => {
     setTimeout(() => {
@@ -41,16 +38,19 @@ export const playGame = tiles => {
           if (tiles[y][x].tileData[1] === true) {
             console.log("exited from the Right");
             const newX = x + 1;
+            store.dispatch(moveTrain("right"));
             playGameNextTile(y, newX, 3);
           }
           if (tiles[y][x].tileData[2] === true) {
             console.log("exited from the Bottom");
             const newY = y + 1;
+            store.dispatch(moveTrain("down"));
             playGameNextTile(newY, x, 0);
           }
           if (tiles[y][x].tileData[3] === true) {
             console.log("exited from the Left");
             const newX = x - 1;
+            store.dispatch(moveTrain("left"));
             playGameNextTile(y, newX, 1);
           }
         }
@@ -60,16 +60,19 @@ export const playGame = tiles => {
           if (tiles[y][x].tileData[0] === true) {
             console.log("exited from the Top");
             const newY = y - 1;
+            store.dispatch(moveTrain("up"));
             playGameNextTile(newY, x, 2);
           }
           if (tiles[y][x].tileData[2] === true) {
             console.log("exited from the Bottom");
             const newY = y + 1;
+            store.dispatch(moveTrain("down"));
             playGameNextTile(newY, x, 0);
           }
           if (tiles[y][x].tileData[3] === true) {
             console.log("exited from the Left");
             const newX = x - 1;
+            store.dispatch(moveTrain("left"));
             playGameNextTile(y, newX, 1);
           }
         }
@@ -79,16 +82,19 @@ export const playGame = tiles => {
           if (tiles[y][x].tileData[0] === true) {
             console.log("exited from the Top");
             const newY = y - 1;
+            store.dispatch(moveTrain("up"));
             playGameNextTile(newY, x, 2);
           }
           if (tiles[y][x].tileData[1] === true) {
             console.log("exited from the Right");
             const newX = x + 1;
+            store.dispatch(moveTrain("right"));
             playGameNextTile(y, newX, 3);
           }
           if (tiles[y][x].tileData[3] === true) {
             console.log("exited from the Left");
             const newX = x - 1;
+            store.dispatch(moveTrain("left"));
             playGameNextTile(y, newX, 1);
           }
         }
@@ -98,16 +104,19 @@ export const playGame = tiles => {
           if (tiles[y][x].tileData[0] === true) {
             console.log("exited from the Top");
             const newY = y - 1;
+            store.dispatch(moveTrain("up"));
             playGameNextTile(newY, x, 2);
           }
           if (tiles[y][x].tileData[1] === true) {
             console.log("exited from the Right");
             const newX = x + 1;
+            store.dispatch(moveTrain("right"));
             playGameNextTile(y, newX, 3);
           }
           if (tiles[y][x].tileData[2] === true) {
             console.log("exited from the Bottom");
             const newY = y + 1;
+            store.dispatch(moveTrain("down"));
             playGameNextTile(newY, x, 0);
           }
         } else {
@@ -116,7 +125,7 @@ export const playGame = tiles => {
       } else {
         console.log("You have finished the level!");
       }
-    }, 1000);
+    }, 500);
   };
 
   console.log("------ playGame --------"); // initial move
@@ -124,27 +133,29 @@ export const playGame = tiles => {
 
   if (tiles[currentTileY][currentTileX].tileData[0] === true) {
     console.log("You have entered from the Top");
+    store.dispatch(moveTrain("down"));
     entry = 0;
+    setTimeout(() => {
+      if (tiles[currentTileY][currentTileX].tileData[0] === true && entry !== 0) {
+        console.log("And exited from the Top");
+      }
 
-    if (tiles[currentTileY][currentTileX].tileData[0] === true && entry !== 0) {
-      console.log("And exited from the Top");
-    }
+      if (tiles[currentTileY][currentTileX].tileData[1] === true && entry !== 1) {
+        console.log("And exited from the Right");
+        const nextTileY = currentTileY;
+        const nextTileX = currentTileX + 1;
+        const nextEntry = 3;
+        store.dispatch(moveTrain("right"));
+        playGameNextTile(nextTileY, nextTileX, nextEntry);
+      }
 
-    if (tiles[currentTileY][currentTileX].tileData[1] === true && entry !== 1) {
-      console.log("And exited from the Right");
-      const nextTileY = currentTileY;
-      const nextTileX = currentTileX + 1;
-      const nextEntry = 3;
-
-      playGameNextTile(nextTileY, nextTileX, nextEntry);
-    }
-
-    if (tiles[currentTileY][currentTileX].tileData[2] === true && entry !== 2) {
-      console.log("And exited from the Bottom");
-    }
-    if (tiles[currentTileY][currentTileX].tileData[3] === true && entry !== 3) {
-      console.log("And exited from the Left");
-    }
+      if (tiles[currentTileY][currentTileX].tileData[2] === true && entry !== 2) {
+        console.log("And exited from the Bottom");
+      }
+      if (tiles[currentTileY][currentTileX].tileData[3] === true && entry !== 3) {
+        console.log("And exited from the Left");
+      }
+    }, 500);
   } else {
     console.log("You have crashed");
   }

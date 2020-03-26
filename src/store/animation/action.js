@@ -1,12 +1,13 @@
-export const MOVE_TRAIN_RIGHT = "MOVE_TRAIN_RIGHT";
+export const MOVE_TRAIN = "MOVE_TRAIN";
 
-const moveTrainRightSuccess = () => ({
-  type: MOVE_TRAIN_RIGHT
+const moveTrainSuccess = direction => ({
+  type: MOVE_TRAIN,
+  payload: direction
 });
 
-export const moveTrainRight = () => async (dispatch, getState) => {
+export const moveTrain = direction => async (dispatch, getState) => {
   try {
-    dispatch(moveTrainRightSuccess());
+    dispatch(moveTrainSuccess(direction));
   } catch (error) {
     console.error(error);
   }
