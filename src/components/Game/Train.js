@@ -8,6 +8,7 @@ export default class Train extends Component {
 
     return (
       <div
+        className="train"
         style={{
           position: "absolute",
           backgroundColor: "red",

@@ -11,6 +11,11 @@ import { rotateTile } from "../../store/levels/action";
 import { playGame } from "./functions/playGame";
 
 export class GameContainer extends Component {
+  state = {
+    trainPositionX: 135,
+    trainPositionY: 30
+  };
+
   rotateHandler = (tileData, tileId, tileClass) => {
     console.log("----- rotateHandler -----");
     this.props.levels.tiles.map(mappedRows => {
@@ -50,9 +55,35 @@ export class GameContainer extends Component {
     });
   };
 
-  moveTrain = () => {
+  moveTrain = direction => {
     console.log("moveTrain triggered");
-    console.log("this.x", Train);
+
+    if (direction === "up") {
+      const newY = this.state.trainPositionY - 100;
+      this.setState({
+        trainPositionY: newY
+      });
+    }
+
+    if (direction === "right") {
+      const newX = this.state.trainPositionX + 100;
+      this.setState({
+        trainPositionX: newX
+      });
+    }
+    if (direction === "down") {
+      const newY = this.state.trainPositionY + 100;
+      this.setState({
+        trainPositionY: newY
+      });
+    }
+
+    if (direction === "left") {
+      const newX = this.state.trainPositionX - 100;
+      this.setState({
+        trainPositionX: newX
+      });
+    }
   };
 
   render() {
@@ -61,7 +92,7 @@ export class GameContainer extends Component {
     return (
       <div>
         Hola
-        <Train moveTrain={this.moveTrain} x={135} y={90} />
+        <Train moveTrain={this.moveTrain} x={this.state.trainPositionX} y={this.state.trainPositionY} />
         <Levels />
         {!tiles && <p>loading</p>}
         {tiles &&
@@ -93,7 +124,6 @@ export class GameContainer extends Component {
                   />
                 );
               }
-
               if (tile.shape === "EXIT") {
                 return (
                   <EXIT_TILE
@@ -111,7 +141,10 @@ export class GameContainer extends Component {
             })
           )}
         <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
-        <button onClick={() => this.moveTrain()}>moveTrain()</button>
+        <button onClick={() => this.moveTrain("up")}>move train up</button>
+        <button onClick={() => this.moveTrain("down")}>move train down</button>
+        <button onClick={() => this.moveTrain("left")}>move train left</button>
+        <button onClick={() => this.moveTrain("right")}>move train right</button>
       </div>
     );
   }
