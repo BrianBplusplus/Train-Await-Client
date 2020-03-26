@@ -1,3 +1,7 @@
+import store from "../../../store/store";
+
+const state = store.getState();
+
 export const playGame = tiles => {
   console.clear();
   let currentTileY = 0;
@@ -5,6 +9,8 @@ export const playGame = tiles => {
   let entry = 0;
   let exit = 0;
   let finishLevel = false;
+
+  console.log("state", state.train.x);
 
   const playGameNextTile = (y, x, entry) => {
     setTimeout(() => {
