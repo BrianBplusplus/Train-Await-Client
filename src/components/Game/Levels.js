@@ -14,22 +14,26 @@ class Levels extends Component {
       [
         <L_TILE shape={"L"} id={1} tileData={[true, true, null, null]} class="left" tileX={150} tileY={150} />,
         <L_TILE shape={"L"} id={2} tileData={[null, true, true, null]} class="up" tileX={250} tileY={150} />,
-        <L_TILE shape={"L"} id={3} tileData={[true, true, null, null]} class="left" tileX={350} tileY={150} />
+        <L_TILE shape={"L"} id={3} tileData={[null, null, true, true]} class="right" tileX={350} tileY={150} />,
+        <L_TILE shape={"L"} id={4} tileData={[true, true, null, null]} class="left" tileX={450} tileY={150} />
       ],
       [
-        <L_TILE shape={"L"} id={4} tileData={[null, true, true, null]} class="up" tileX={150} tileY={250} />,
-        <L_TILE shape={"L"} id={5} tileData={[true, true, null, null]} class="left" tileX={250} tileY={250} />,
-        <I_TILE shape={"I"} id={6} tileData={[true, null, true, null]} class="down" tileX={350} tileY={250} />
+        <L_TILE shape={"L"} id={5} tileData={[null, true, true, null]} class="up" tileX={150} tileY={250} />,
+        <L_TILE shape={"L"} id={6} tileData={[true, true, null, null]} class="left" tileX={250} tileY={250} />,
+        <I_TILE shape={"I"} id={7} tileData={[true, null, true, null]} class="down" tileX={350} tileY={250} />,
+        <I_TILE shape={"I"} id={8} tileData={[null, true, null, true]} class="right" tileX={450} tileY={250} />
       ],
       [
-        <L_TILE shape={"L"} id={7} tileData={[true, null, null, true]} class="down" tileX={150} tileY={350} />,
-        <I_TILE shape={"I"} id={8} tileData={[null, true, null, true]} class="left" tileX={250} tileY={350} />,
-        <L_TILE shape={"L"} id={9} tileData={[true, true, null, null]} class="left" tileX={350} tileY={350} />
+        <L_TILE shape={"L"} id={9} tileData={[true, null, null, true]} class="down" tileX={150} tileY={350} />,
+        <I_TILE shape={"I"} id={10} tileData={[null, true, null, true]} class="left" tileX={250} tileY={350} />,
+        <L_TILE shape={"L"} id={11} tileData={[true, true, null, null]} class="left" tileX={350} tileY={350} />,
+        <I_TILE shape={"I"} id={12} tileData={[null, true, null, true]} class="left" tileX={450} tileY={350} />
       ],
       [
-        <L_TILE shape={"L"} id={10} tileData={[true, null, null, true]} class="down" tileX={150} tileY={450} />,
-        <I_TILE shape={"I"} id={11} tileData={[null, true, null, true]} class="left" tileX={250} tileY={450} />,
-        <EXIT_TILE shape={"EXIT"} id={12} tileData={[true, null, null, true]} class="up" tileX={350} tileY={450} exit={true} />
+        <L_TILE shape={"L"} id={13} tileData={[null, true, true, null]} class="up" tileX={150} tileY={450} />,
+        <I_TILE shape={"I"} id={14} tileData={[null, true, null, true]} class="left" tileX={250} tileY={450} />,
+        <L_TILE shape={"L"} id={15} tileData={[true, null, null, true]} class="down" tileX={350} tileY={450} />,
+        <EXIT_TILE shape={"EXIT"} id={16} tileData={[true, null, null, true]} class="up" tileX={450} tileY={450} exit={true} />
       ]
     ];
 
