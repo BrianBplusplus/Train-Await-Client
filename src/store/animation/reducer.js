@@ -10,20 +10,19 @@ export default (state = initialState, action = {}) => {
         const newY = state.y - 100;
         return { ...state, y: newY };
       }
-
       if (direction === "right") {
         const newX = state.x + 100;
         return { ...state, x: newX };
       }
-
       if (direction === "down") {
         const newY = state.y + 100;
         return { ...state, y: newY };
       }
-
       if (direction === "left") {
         const newX = state.x - 100;
         return { ...state, x: newX };
+      } else {
+        break;
       }
     }
 

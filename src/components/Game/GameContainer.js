@@ -8,6 +8,7 @@ import EXIT_TILE from "./tiles/EXIT_TILE";
 import Train from "./Train";
 
 import { rotateTile } from "../../store/levels/action";
+import { resetTrain } from "../../store/animation/action";
 import { playGame } from "./functions/playGame";
 
 export class GameContainer extends Component {
@@ -105,6 +106,7 @@ export class GameContainer extends Component {
             })
           )}
         <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
+        <button onClick={() => this.props.resetTrain()}>Reset train</button>
       </div>
     );
   }
@@ -112,6 +114,6 @@ export class GameContainer extends Component {
 
 const mapStateToProps = state => ({ levels: state.levels, train: state.train });
 
-const mapDispatchToProps = { rotateTile };
+const mapDispatchToProps = { rotateTile, resetTrain };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);
