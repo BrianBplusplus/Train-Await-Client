@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import image from "../../../images/TrainTrackTest2.jpeg";
+import image from "../../../images/TrainTrackExit.jpeg";
 
-export default class I_TILE extends Component {
-  handleClick = () => {
-    this.props.rotateHandler(this.props.tileData, this.props.id, this.props.class);
-  };
+export default class EXIT_TILE extends Component {
+  //handleClick = () => {
+  //  this.props.rotateHandler(this.props.tileData, this.props.id, this.props.class);
+  //};
 
   render() {
     const size = 90;

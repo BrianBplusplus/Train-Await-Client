@@ -2,42 +2,8 @@ import React, { Component } from "react";
 import image from "../../../images/TrainTrackTest.jpeg";
 
 export default class L_TILE extends Component {
-  state = {
-    class: this.props.class,
-    tileData: this.props.tileData
-  };
-
   handleClick = () => {
-    this.props.rotateHandler(this.props.tileData, this.props.id);
-
-    switch (this.state.class) {
-      case "up":
-        this.setState({
-          class: "right"
-        });
-        break;
-
-      case "right":
-        this.setState({
-          class: "down"
-        });
-        break;
-
-      case "down":
-        this.setState({
-          class: "left"
-        });
-        break;
-
-      case "left":
-        this.setState({
-          class: "up"
-        });
-        break;
-
-      default:
-        break;
-    }
+    this.props.rotateHandler(this.props.tileData, this.props.id, this.props.class);
   };
 
   render() {
@@ -47,7 +13,6 @@ export default class L_TILE extends Component {
 
     return (
       <div
-        className={this.state.class}
         onClick={this.handleClick}
         id={this.props.id}
         style={{
@@ -58,7 +23,7 @@ export default class L_TILE extends Component {
           top: y
         }}
       >
-        <img className={this.state.class} src={image} alt="temporary" />
+        <img className={this.props.class} src={image} alt="temporary" />
       </div>
     );
   }

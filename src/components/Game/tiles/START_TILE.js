@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import image from "../../../images/TrainTrackTest2.jpeg";
+import image from "../../../images/TrainTrackTest.jpeg";
 
-export default class I_TILE extends Component {
+export default class START_TILE extends Component {
   handleClick = () => {
     this.props.rotateHandler(this.props.tileData, this.props.id, this.props.class);
   };
