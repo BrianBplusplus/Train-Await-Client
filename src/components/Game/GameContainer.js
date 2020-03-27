@@ -107,7 +107,7 @@ export class GameContainer extends Component {
           )}
         <button onClick={() => playGame(tiles)}>Play!</button>
         <button onClick={() => this.props.resetTrain()}>Reset train</button>
-        <button onClick={() => this.props.nextLevel()}>Next level</button>
+        {/* <button onClick={() => this.props.nextLevel()}>Next level</button> */}
       </div>
     );
   }

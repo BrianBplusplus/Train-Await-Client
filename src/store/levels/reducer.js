@@ -1,6 +1,6 @@
 import { START_LEVEL, NEXT_LEVEL, ROTATE_TILE } from "./action";
 
-const initialState = { currentLevel: 0, tiles: null };
+const initialState = { currentLevel: 0, rendered: false, tiles: null };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
@@ -10,6 +10,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         currentLevel: nextLevel,
+        rendered: true,
         tiles: action.payload
       };
     }
@@ -18,7 +19,8 @@ export default (state = initialState, action = {}) => {
       const nextLevel = state.currentLevel + 1;
       return {
         ...state,
-        currentLevel: nextLevel
+        // currentLevel: nextLevel
+        rendered: false
       };
     }
 
@@ -27,17 +29,17 @@ export default (state = initialState, action = {}) => {
       const newState = { ...state };
       newState.tiles = state.tiles.map((currentTile, index) => {
         if (index === x) {
-          return currentTile.map((tegel, index) => {
+          return currentTile.map((tile, index) => {
             if (index === y) {
-              console.log("reducer BEFORE", tegel.tileData, tegel.class);
-              const newTegel = { ...tegel };
-              newTegel.tileData = rotatedTile;
-              newTegel.class = rotatedClass;
-              console.log("reducer AFTER", newTegel.tileData, newTegel.class);
+              console.log("reducer BEFORE", tile.tileData, tile.class);
+              const newTile = { ...tile };
+              newTile.tileData = rotatedTile;
+              newTile.class = rotatedClass;
+              console.log("reducer AFTER", newTile.tileData, newTile.class);
 
-              return newTegel;
+              return newTile;
             }
-            return tegel;
+            return tile;
           });
         }
         return currentTile;
