@@ -13,6 +13,24 @@ class Levels extends Component {
     const level1 = [
       [
         <L_TILE shape={"L"} id={1} tileData={[true, true, null, null]} class="left" tileX={50} tileY={150} />,
+        <I_TILE shape={"I"} id={2} tileData={[true, null, true, null]} class="up" tileX={150} tileY={150} />,
+        <L_TILE shape={"L"} id={3} tileData={[null, null, true, true]} class="right" tileX={250} tileY={150} />
+      ],
+      [
+        <L_TILE shape={"L"} id={4} tileData={[null, true, true, null]} class="up" tileX={50} tileY={250} />,
+        <I_TILE shape={"I"} id={5} tileData={[true, null, true, null]} class="down" tileX={150} tileY={250} />,
+        <L_TILE shape={"L"} id={6} tileData={[true, true, null, null]} class="left" tileX={250} tileY={250} />
+      ],
+      [
+        <L_TILE shape={"L"} id={7} tileData={[true, null, null, true]} class="down" tileX={50} tileY={350} />,
+        <I_TILE shape={"I"} id={8} tileData={[null, true, null, true]} class="left" tileX={150} tileY={350} />,
+        <EXIT_TILE shape={"EXIT"} id={9} tileData={[true, null, null, true]} class="up" tileX={250} tileY={350} exit={true} />
+      ]
+    ];
+
+    const level2 = [
+      [
+        <L_TILE shape={"L"} id={1} tileData={[true, true, null, null]} class="left" tileX={50} tileY={150} />,
         <L_TILE shape={"L"} id={2} tileData={[null, true, true, null]} class="up" tileX={150} tileY={150} />,
         <L_TILE shape={"L"} id={3} tileData={[null, null, true, true]} class="right" tileX={250} tileY={150} />,
         <L_TILE shape={"L"} id={4} tileData={[true, true, null, null]} class="left" tileX={350} tileY={150} />
@@ -39,6 +57,10 @@ class Levels extends Component {
 
     if (this.props.levels.currentLevel === 0) {
       this.props.startLevel(level1);
+    }
+
+    if (this.props.levels.currentLevel === 2) {
+      this.props.startLevel(level2);
     }
 
     return null;
