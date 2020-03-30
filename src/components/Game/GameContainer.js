@@ -10,6 +10,7 @@ import Train from "./Train";
 import { rotateTile, nextLevel } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
 import { playGame } from "./functions/playGame";
+import Footer from "../Interface/Footer";
 
 export class GameContainer extends Component {
   rotateHandler = (tileData, tileId, tileClass) => {
@@ -116,6 +117,7 @@ export class GameContainer extends Component {
               });
             })}
         </div>
+        <Footer />
       </div>
     );
   }
