@@ -59,13 +59,19 @@ export class GameContainer extends Component {
       <div>
         <div className="gameTopBar">
           <p>
-            Level: {currentLevel}
+            <span className="variableColor">Level:</span> <span className="integerColor">{currentLevel}</span>
             <br></br>
-            Score: {score}
+            <span className="variableColor">Score:</span> <span className="integerColor">{score}</span>
           </p>
-          <button onClick={() => playGame(tiles)}>Play!</button>
-          <button onClick={() => this.props.resetTrain()}>Reset train</button>
-          <button onClick={() => this.props.nextLevel()}>Next level</button>
+          <button className="functionColor" onClick={() => playGame(tiles)}>
+            play!()
+          </button>
+          <button className="functionColor" onClick={() => this.props.resetTrain()}>
+            resetTrain()
+          </button>
+          <button className="functionColor" onClick={() => this.props.nextLevel()}>
+            nextLevel()
+          </button>
         </div>
         <div>
           <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />

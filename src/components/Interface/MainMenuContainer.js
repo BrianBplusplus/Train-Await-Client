@@ -11,23 +11,24 @@ export class MainMenuContainer extends Component {
           <span className="titleLeft">train</span> <span className="titleRight">await</span>
         </h1>
         <span>
-          <span className="highlightText">How to Play:</span>
           <p>
-            Rotate the tracks by clicking on them, once all the tracks are in place press <span className="highlightText">"Play!"</span> to make the
+            <span className="variableColor">How to Play:</span>
+            <br></br>
+            Rotate the tracks by clicking on them, once all the tracks are in place press <span className="variableColor">"play!()"</span> to make the
             train move
           </p>
           <p>
-            <span className="highlightText">Scoring:</span>
+            <span className="variableColor">Scoring:</span>
             <br></br>
-            The longer the train rides the <span className="highlightText">higher</span> your score <br></br>
-            The amount of times you rotate the train tracks <span className="highlightText">reduces</span> your score
+            The longer the train rides the <span className="variableColor">higher</span> your <span className="integerColor">score</span> <br></br>
+            The amount of times you rotate the train tracks <span className="variableColor">reduces</span> your{" "}
+            <span className="integerColor">score</span>
           </p>
         </span>
-        <p>
-          <Link className="titleRight" to="/game">
-            Play Game
-          </Link>
-        </p>
+
+        <Link className="functionColor" to="/game">
+          playGame()
+        </Link>
 
         <Footer />
       </div>

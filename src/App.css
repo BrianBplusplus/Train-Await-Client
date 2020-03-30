@@ -9,6 +9,11 @@ body {
   background-color: #484848;
   margin: 0;
 }
+
+p {
+  color: #9bc8e5;
+}
+
 .gameTopBar {
   text-align: center;
 }
@@ -31,12 +36,12 @@ body {
   color: #a47ea7;
 }
 
-.highlightText {
+.variableColor {
   color: #5783ad;
 }
 
-p {
-  color: #9bc8e5;
+.integerColor {
+  color: #adbc9d;
 }
 
 a,
@@ -45,8 +50,24 @@ a,
   text-decoration: none;
 }
 
+a:hover,
+.linkColor:hover {
+  color: #7fff00;
+}
+
 .commentColor {
   color: #5c7249;
+}
+
+.functionColor {
+  color: #cbc9a1;
+  border: 1px solid;
+  padding: 0.5rem;
+  border-radius: 7px;
+}
+
+.functionColor:hover {
+  color: #ffff00;
 }
 
 .up {
@@ -75,4 +96,17 @@ a,
 .train {
   width: 90px;
   transition: 0.5s linear;
+}
+
+/* --- Removing default button styling --- */
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
