@@ -7,7 +7,7 @@ import I_TILE from "./tiles/I_TILE";
 import EXIT_TILE from "./tiles/EXIT_TILE";
 import Train from "./Train";
 
-import { rotateTile } from "../../store/levels/action";
+import { rotateTile, nextLevel } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
 import { playGame } from "./functions/playGame";
 
@@ -52,61 +52,66 @@ export class GameContainer extends Component {
   };
 
   render() {
-    const { tiles } = this.props.levels;
+    const { tiles, currentLevel } = this.props.levels;
     const { train } = this.props;
     return (
       <div>
-        Hola
-        <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />
-        <Levels />
-        {!tiles && <p>loading</p>}
-        {tiles &&
-          tiles.map(rows =>
-            rows.map(tile => {
-              if (tile.shape === "L") {
-                return (
-                  <L_TILE
-                    key={tile.id}
-                    id={tile.id}
-                    tileData={tile.tileData}
-                    class={tile.class}
-                    tileX={tile.tileX}
-                    tileY={tile.tileY}
-                    rotateHandler={this.rotateHandler}
-                  />
-                );
-              }
-              if (tile.shape === "I") {
-                return (
-                  <I_TILE
-                    key={tile.id}
-                    id={tile.id}
-                    tileData={tile.tileData}
-                    class={tile.class}
-                    tileX={tile.tileX}
-                    tileY={tile.tileY}
-                    rotateHandler={this.rotateHandler}
-                  />
-                );
-              }
-              if (tile.shape === "EXIT") {
-                return (
-                  <EXIT_TILE
-                    key={tile.id}
-                    id={tile.id}
-                    tileData={tile.tileData}
-                    class={tile.class}
-                    tileX={tile.tileX}
-                    tileY={tile.tileY}
-                    tileExit={tile.exit}
-                  />
-                );
-              }
-              return null;
-            })
-          )}
-        <button onClick={() => playGame(this.props.levels.tiles)}>Play!</button>
-        <button onClick={() => this.props.resetTrain()}>Reset train</button>
+        <div className="gameTopBar">
+          <p> Level: {currentLevel}</p>
+          <button onClick={() => playGame(tiles)}>Play!</button>
+          <button onClick={() => this.props.resetTrain()}>Reset train</button>
+          <button onClick={() => this.props.nextLevel()}>Next level</button>
+        </div>
+        <div>
+          <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />
+          <Levels />
+          {!tiles && <p>loading</p>}
+          {tiles &&
+            tiles.map(rows =>
+              rows.map(tile => {
+                if (tile.shape === "L") {
+                  return (
+                    <L_TILE
+                      key={tile.id}
+                      id={tile.id}
+                      tileData={tile.tileData}
+                      class={tile.class}
+                      tileX={tile.tileX}
+                      tileY={tile.tileY}
+                      rotateHandler={this.rotateHandler}
+                    />
+                  );
+                }
+                if (tile.shape === "I") {
+                  return (
+                    <I_TILE
+                      key={tile.id}
+                      id={tile.id}
+                      tileData={tile.tileData}
+                      class={tile.class}
+                      tileX={tile.tileX}
+                      tileY={tile.tileY}
+                      rotateHandler={this.rotateHandler}
+                    />
+                  );
+                }
+                if (tile.shape === "EXIT") {
+                  return (
+                    <EXIT_TILE
+                      key={tile.id}
+                      id={tile.id}
+                      tileData={tile.tileData}
+                      class={tile.class}
+                      tileX={tile.tileX}
+                      tileY={tile.tileY}
+                      tileExit={tile.exit}
+                    />
+                  );
+                }
+                return null;
+              })
+            )}
+        </div>
       </div>
     );
   }
@@ -114,6 +119,6 @@ export class GameContainer extends Component {
 
 const mapStateToProps = state => ({ levels: state.levels, train: state.train });
 
-const mapDispatchToProps = { rotateTile, resetTrain };
+const mapDispatchToProps = { rotateTile, nextLevel, resetTrain };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);

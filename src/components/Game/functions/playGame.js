@@ -1,5 +1,6 @@
 import store from "../../../store/store";
 import { moveTrain, resetTrain } from "../../../store/animation/action";
+import { nextLevel } from "../../../store/levels/action";
 
 export const playGame = tiles => {
   console.clear();
@@ -25,6 +26,11 @@ export const playGame = tiles => {
       // --Checks if the train has reached its correct destination--
       if (tiles[y][x].exit === true) {
         console.log("exit has been reached, you have completed the level!");
+        setTimeout(() => {
+          store.dispatch(resetTrain());
+          store.dispatch(nextLevel());
+        }, 1000);
+
         return;
       }
       console.log("next tile tileId", tiles[y][x].id);

@@ -15,6 +15,20 @@ export const startLevel = level => async (dispatch, getState) => {
   }
 };
 
+export const NEXT_LEVEL = "NEXT_LEVEL";
+
+const nextLevelSuccess = () => ({
+  type: NEXT_LEVEL
+});
+
+export const nextLevel = () => async (dispatch, getState) => {
+  try {
+    dispatch(nextLevelSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const ROTATE_TILE = "ROTATE_TILE";
 
 const rotateTileSuccess = (rotatedTile, x, y, rotatedClass) => ({
