@@ -1,5 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+
+html {
+}
+
+body {
+  text-align: center;
+  font-family: "Inconsolata", monospace;
+  background-color: #484848;
+}
 .gameTopBar {
   text-align: center;
+}
+
+.titleLeft {
+  color: #9bc8e5;
+}
+
+.titleRight {
+  color: #a47ea7;
+}
+
+.highlightText {
+  color: #5783ad;
+}
+
+p {
+  color: #9bc8e5;
 }
 
 .up {
