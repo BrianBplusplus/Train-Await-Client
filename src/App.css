@@ -28,6 +28,15 @@ p {
   background-color: #3c3b3b;
 }
 
+.gameBoard {
+  display: flex;
+}
+
+.gameTile {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .titleLeft {
   color: #9bc8e5;
 }
