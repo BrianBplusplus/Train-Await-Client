@@ -57,13 +57,15 @@ export class GameContainer extends Component {
     const { train, score } = this.props;
     return (
       <div>
-        <div className="gameTopBar">
-          <p>
-            <span className="variableColor">Level:</span> <span className="integerColor">{currentLevel}</span>
-            <br></br>
-            <span className="variableColor">Score:</span> <span className="integerColor">{score}</span>
-          </p>
-        </div>
+        <h1>
+          <span className="titleLeft">train</span> <span className="titleRight">await</span>
+        </h1>
+        <p className="gameTopBar">
+          <span className="variableColor">Level:</span> <span className="integerColor">{currentLevel}</span>{" "}
+          <span className="variableColor">Score:</span> <span className="integerColor">{score}</span> <span className="variableColor">Lives:</span>{" "}
+          <span className="integerColor">3</span>
+        </p>
+
         <div>
           <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />
           <Levels />
@@ -118,9 +120,14 @@ export class GameContainer extends Component {
                   </div>
                 );
               })}
-            <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
-              play!()
-            </button>
+            <div className="buttonsContainer">
+              <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
+                play!()
+              </button>
+              <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
+                nextLevel()
+              </button>
+            </div>
           </div>
         </div>
         <Footer />
