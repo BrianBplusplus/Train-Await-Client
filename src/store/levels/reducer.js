@@ -16,10 +16,8 @@ export default (state = initialState, action = {}) => {
     }
 
     case NEXT_LEVEL: {
-      const nextLevel = state.currentLevel + 1;
       return {
         ...state,
-        // currentLevel: nextLevel
         rendered: false
       };
     }
