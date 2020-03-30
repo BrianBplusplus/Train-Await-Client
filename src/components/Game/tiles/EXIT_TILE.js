@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { uuid } from "uuidv4";
 import image from "../../../images/EXIT_TILE.jpg";
 
 export default class EXIT_TILE extends Component {
@@ -11,7 +10,6 @@ export default class EXIT_TILE extends Component {
     return (
       <div
         onClick={this.handleClick}
-        id={uuid()}
         style={{
           position: "absolute",
           width: size,

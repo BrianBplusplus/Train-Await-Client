@@ -14,8 +14,8 @@ export class MainMenuContainer extends Component {
           <p>
             <span className="variableColor">How to Play:</span>
             <br></br>
-            Rotate the tracks by clicking on them, once all the tracks are in place press <span className="variableColor">"play!()"</span> to make the
-            train move
+            Rotate the tracks by clicking on them, once all the tracks are in place press <span className="functionColorMainMenu">"play!()"</span> to
+            make the train move
           </p>
           <p>
             <span className="variableColor">Scoring:</span>

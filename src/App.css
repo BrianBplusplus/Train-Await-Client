@@ -70,6 +70,10 @@ a:hover,
   color: #ffff00;
 }
 
+.functionColorMainMenu {
+  color: #cbc9a1;
+}
+
 .up {
   width: 90px;
   transform: rotate(0deg);

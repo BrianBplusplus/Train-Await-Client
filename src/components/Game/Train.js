@@ -11,7 +11,7 @@ export default class Train extends Component {
         className="train"
         style={{
           position: "absolute",
-          backgroundColor: "red",
+          backgroundColor: "#a47ea7",
           zIndex: 1,
           width: size,
           height: size,

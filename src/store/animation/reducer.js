@@ -27,7 +27,7 @@ export default (state = initialState, action = {}) => {
     }
 
     case RESET_TRAIN: {
-      return { state, x: 35, y: 30 };
+      return { x: 35, y: 30 };
     }
     default:
       return state;
