@@ -63,25 +63,16 @@ export class GameContainer extends Component {
             <br></br>
             <span className="variableColor">Score:</span> <span className="integerColor">{score}</span>
           </p>
-          <button className="functionColor" onClick={() => playGame(tiles)}>
-            play!()
-          </button>
-          <button className="functionColor" onClick={() => this.props.resetTrain()}>
-            resetTrain()
-          </button>
-          <button className="functionColor" onClick={() => this.props.nextLevel()}>
-            nextLevel()
-          </button>
         </div>
         <div>
           <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />
           <Levels />
           {!tiles && <p>loading</p>}
-          <div>
+          <div className="gameBoard">
             {tiles &&
               tiles.map((rows, index) => {
                 return (
-                  <div key={index} className="gameBoard">
+                  <div key={index} className="gameRow">
                     {rows.map(tile => {
                       if (tile.shape === "L") {
                         return (
@@ -127,6 +118,9 @@ export class GameContainer extends Component {
                   </div>
                 );
               })}
+            <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
+              play!()
+            </button>
           </div>
         </div>
         <Footer />

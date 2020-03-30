@@ -30,6 +30,13 @@ p {
 
 .gameBoard {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gameRow {
+  display: flex;
+  margin: auto;
 }
 
 .gameTile {
@@ -81,6 +88,10 @@ a:hover,
 
 .functionColorMainMenu {
   color: #cbc9a1;
+}
+
+#playButton {
+  margin: auto;
 }
 
 .up {
