@@ -53,11 +53,15 @@ export class GameContainer extends Component {
 
   render() {
     const { tiles, currentLevel } = this.props.levels;
-    const { train } = this.props;
+    const { train, score } = this.props;
     return (
       <div>
         <div className="gameTopBar">
-          <p> Level: {currentLevel}</p>
+          <p>
+            Level: {currentLevel}
+            <br></br>
+            Score: {score}
+          </p>
           <button onClick={() => playGame(tiles)}>Play!</button>
           <button onClick={() => this.props.resetTrain()}>Reset train</button>
           <button onClick={() => this.props.nextLevel()}>Next level</button>
@@ -67,8 +71,8 @@ export class GameContainer extends Component {
           <Levels />
           {!tiles && <p>loading</p>}
           {tiles &&
-            tiles.map(rows =>
-              rows.map(tile => {
+            tiles.map(rows => {
+              return rows.map(tile => {
                 if (tile.shape === "L") {
                   return (
                     <L_TILE
@@ -109,15 +113,15 @@ export class GameContainer extends Component {
                   );
                 }
                 return null;
-              })
-            )}
+              });
+            })}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ levels: state.levels, train: state.train });
+const mapStateToProps = state => ({ levels: state.levels, train: state.train, score: state.score });
 
 const mapDispatchToProps = { rotateTile, nextLevel, resetTrain };
 

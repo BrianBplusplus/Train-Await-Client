@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import image from "../../../images/TrainTrackTest.jpeg";
+import { uuid } from "uuidv4";
+import image from "../../../images/START_TILE.jpg";
 
 export default class START_TILE extends Component {
   handleClick = () => {
@@ -14,7 +15,7 @@ export default class START_TILE extends Component {
     return (
       <div
         onClick={this.handleClick}
-        id={this.props.id}
+        id={uuid()}
         style={{
           position: "absolute",
           width: size,

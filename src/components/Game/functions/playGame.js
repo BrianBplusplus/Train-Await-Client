@@ -6,8 +6,11 @@ export const playGame = tiles => {
   console.clear();
   const startingY = 0;
   const startingX = 0;
+  let score = 0;
 
   const playGameNextTile = (y, x, entry) => {
+    score = score += 1;
+    console.log("score", score);
     setTimeout(() => {
       console.log("------ next tile ------");
       console.log("x", x, "y", y, "entry", entry);

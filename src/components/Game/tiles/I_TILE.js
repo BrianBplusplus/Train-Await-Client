@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import image from "../../../images/TrainTrackTest2.jpeg";
+import image from "../../../images/I_TILE.jpg";
 
 export default class I_TILE extends Component {
   handleClick = () => {
@@ -14,7 +14,6 @@ export default class I_TILE extends Component {
     return (
       <div
         onClick={this.handleClick}
-        id={this.props.id}
         style={{
           position: "absolute",
           width: size,

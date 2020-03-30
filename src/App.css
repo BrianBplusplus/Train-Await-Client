@@ -3,24 +3,29 @@
 }
 
 .up {
+  width: 90px;
   transform: rotate(0deg);
 }
 
 .right {
+  width: 90px;
   transition: transform 0.3s ease;
   transform: rotate(90deg);
 }
 
 .down {
+  width: 90px;
   transition: transform 0.3s ease;
   transform: rotate(180deg);
 }
 
 .left {
+  width: 90px;
   transition: transform 0.3s ease;
   transform: rotate(270deg);
 }
 
 .train {
+  width: 90px;
   transition: 0.5s linear;
 }
