@@ -1,6 +1,7 @@
 import store from "../../../store/store";
 import { moveTrain, resetTrain } from "../../../store/animation/action";
 import { nextLevel } from "../../../store/levels/action";
+import { increaseScore } from "../../../store/score/action";
 
 export const playGame = tiles => {
   console.clear();
@@ -35,6 +36,7 @@ export const playGame = tiles => {
         console.log("exit has been reached, you have completed the level!");
         setTimeout(() => {
           store.dispatch(nextLevel());
+          store.dispatch(increaseScore(steps));
         }, 1000);
 
         return;
