@@ -54,7 +54,8 @@ export class GameContainer extends Component {
 
   render() {
     const { tiles, currentLevel } = this.props.levels;
-    const { train, score } = this.props;
+    const { score } = this.props.score;
+    const { train } = this.props;
     return (
       <div>
         <h1>
