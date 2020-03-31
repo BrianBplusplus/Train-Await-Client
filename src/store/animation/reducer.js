@@ -30,7 +30,9 @@ export default (state = initialState, action = {}) => {
     }
 
     case RESET_TRAIN: {
-      return { x: screenWidthCenter - tileAdjuster, y: 110 };
+      const screenWidth = window.innerWidth / 2;
+      const adjustXBasedOnScreenWidth = action.payload;
+      return { x: screenWidth - adjustXBasedOnScreenWidth, y: 110 };
     }
     default:
       return state;

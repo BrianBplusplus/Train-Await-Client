@@ -8,6 +8,10 @@ export const playGame = tiles => {
   const startingX = 0;
   let steps = 0;
 
+  const state = store.getState();
+  const arrayLength = state.levels.tiles[0].length;
+  console.log("arrayLength in playGame", arrayLength);
+
   const playGameNextTile = (y, x, entry) => {
     steps = steps += 1;
     console.log("step count", steps);
@@ -18,19 +22,18 @@ export const playGame = tiles => {
       // --Checks if the train is out of bounds--
       if (y >= tiles.length || y < 0) {
         console.log("Out of bounds vertical");
-        store.dispatch(resetTrain());
+        store.dispatch(resetTrain(arrayLength));
         return;
       }
       if (x >= tiles[y].length || x < 0) {
         console.log("Out of bounds horizontal");
-        store.dispatch(resetTrain());
+        store.dispatch(resetTrain(arrayLength));
         return;
       }
       // --Checks if the train has reached its correct destination--
       if (tiles[y][x].exit === true) {
         console.log("exit has been reached, you have completed the level!");
         setTimeout(() => {
-          store.dispatch(resetTrain());
           store.dispatch(nextLevel());
         }, 1000);
 
@@ -126,7 +129,7 @@ export const playGame = tiles => {
         }
       } else {
         console.log("you have crashed!");
-        store.dispatch(resetTrain());
+        store.dispatch(resetTrain(arrayLength));
       }
     }, 500);
   };

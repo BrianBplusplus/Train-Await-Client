@@ -55,8 +55,6 @@ export class GameContainer extends Component {
   render() {
     const { tiles, currentLevel } = this.props.levels;
     const { train, score } = this.props;
-    const screenWidth = window.innerWidth;
-    console.log("screenWidth", screenWidth);
     return (
       <div>
         <h1>
@@ -64,8 +62,8 @@ export class GameContainer extends Component {
         </h1>
         <p className="gameTopBar">
           <span className="variableColor">Level:</span> <span className="integerColor">{currentLevel}</span>{" "}
-          <span className="variableColor">Score:</span> <span className="integerColor">{score}</span> <span className="variableColor">Lives:</span>{" "}
-          <span className="integerColor">3</span>
+          <span className="variableColor">Lives:</span> <span className="integerColor">{3}</span> <span className="variableColor">Score:</span>{" "}
+          <span className="integerColor">{score}</span>
         </p>
 
         <div>
@@ -96,9 +94,9 @@ export class GameContainer extends Component {
               <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
                 play!()
               </button>
-              <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
+              {/* <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
                 nextLevel()
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

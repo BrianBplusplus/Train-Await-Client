@@ -15,13 +15,19 @@ export const moveTrain = direction => async (dispatch, getState) => {
 
 export const RESET_TRAIN = "RESET_TRAIN";
 
-const resetTrainSuccess = () => ({
-  type: RESET_TRAIN
+const resetTrainSuccess = adjustXBasedOnScreenWidth => ({
+  type: RESET_TRAIN,
+  payload: adjustXBasedOnScreenWidth
 });
 
-export const resetTrain = () => async (dispatch, getState) => {
+export const resetTrain = arrayLength => async (dispatch, getState) => {
   try {
-    dispatch(resetTrainSuccess());
+    if (arrayLength === 3) {
+      dispatch(resetTrainSuccess(100));
+    }
+    if (arrayLength === 4) {
+      dispatch(resetTrainSuccess(140));
+    }
   } catch (error) {
     console.error(error);
   }

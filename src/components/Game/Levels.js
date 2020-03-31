@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { startLevel } from "../../store/levels/action";
+import { resetTrain } from "../../store/animation/action";
 
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
@@ -84,14 +85,17 @@ class Levels extends Component {
 
     if (currentLevel === 0 && !rendered) {
       this.props.startLevel(level1);
+      this.props.resetTrain(level1[0].length);
     }
 
     if (currentLevel === 1 && !rendered) {
       this.props.startLevel(level2);
+      this.props.resetTrain(level2[0].length);
     }
 
     if (currentLevel === 2 && !rendered) {
       this.props.startLevel(level3);
+      this.props.resetTrain(level3[0].length);
     }
 
     return null;
@@ -100,6 +104,6 @@ class Levels extends Component {
 
 const mapStateToProps = state => ({ levels: state.levels });
 
-const mapDispatchToProps = { startLevel };
+const mapDispatchToProps = { startLevel, resetTrain };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Levels);
