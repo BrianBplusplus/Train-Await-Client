@@ -55,6 +55,8 @@ export class GameContainer extends Component {
   render() {
     const { tiles, currentLevel } = this.props.levels;
     const { train, score } = this.props;
+    const screenWidth = window.innerWidth;
+    console.log("screenWidth", screenWidth);
     return (
       <div>
         <h1>
@@ -77,43 +79,13 @@ export class GameContainer extends Component {
                   <div key={index} className="gameRow">
                     {rows.map(tile => {
                       if (tile.shape === "L") {
-                        return (
-                          <L_TILE
-                            key={tile.id}
-                            id={tile.id}
-                            tileData={tile.tileData}
-                            class={tile.class}
-                            tileX={tile.tileX}
-                            tileY={tile.tileY}
-                            rotateHandler={this.rotateHandler}
-                          />
-                        );
+                        return <L_TILE key={tile.id} id={tile.id} tileData={tile.tileData} class={tile.class} rotateHandler={this.rotateHandler} />;
                       }
                       if (tile.shape === "I") {
-                        return (
-                          <I_TILE
-                            key={tile.id}
-                            id={tile.id}
-                            tileData={tile.tileData}
-                            class={tile.class}
-                            tileX={tile.tileX}
-                            tileY={tile.tileY}
-                            rotateHandler={this.rotateHandler}
-                          />
-                        );
+                        return <I_TILE key={tile.id} id={tile.id} tileData={tile.tileData} class={tile.class} rotateHandler={this.rotateHandler} />;
                       }
                       if (tile.shape === "EXIT") {
-                        return (
-                          <EXIT_TILE
-                            key={tile.id}
-                            id={tile.id}
-                            tileData={tile.tileData}
-                            class={tile.class}
-                            tileX={tile.tileX}
-                            tileY={tile.tileY}
-                            tileExit={tile.exit}
-                          />
-                        );
+                        return <EXIT_TILE key={tile.id} id={tile.id} tileData={tile.tileData} class={tile.class} tileExit={tile.exit} />;
                       }
                       return null;
                     })}

@@ -7,7 +7,7 @@ export default class I_TILE extends Component {
   };
 
   render() {
-    const size = 90;
+    const size = 75;
     return (
       <div
         onClick={this.handleClick}

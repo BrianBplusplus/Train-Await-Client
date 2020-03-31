@@ -3,7 +3,7 @@ import image from "../../../images/EXIT_TILE.jpg";
 
 export default class EXIT_TILE extends Component {
   render() {
-    const size = 90;
+    const size = 75;
     return (
       <div
         onClick={this.handleClick}
