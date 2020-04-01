@@ -10,15 +10,11 @@ export class PlayButton extends Component {
     return (
       <div className={this.props.class}>
         {!moving && (
-          <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
+          <button className="functionColor" onClick={() => playGame(tiles)}>
             play!()
           </button>
         )}
-        {moving && (
-          <button className="functionColorInactive" id="playButton">
-            play!()
-          </button>
-        )}
+        {moving && <button className="functionColorInactive">play!()</button>}
       </div>
     );
   }

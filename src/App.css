@@ -13,10 +13,6 @@ p {
 }
 
 /* --- Component styling --- */
-.gameTopBar {
-  text-align: center;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -92,6 +88,11 @@ a:hover,
   color: #5c7249;
 }
 
+.functionColorMainMenu {
+  color: #cbc9a1;
+}
+
+/* --- Button styling --- */
 .functionColor {
   color: #cbc9a1;
   border: 1px solid;
@@ -114,27 +115,6 @@ a:hover,
   padding: 0.5rem;
   border-radius: 7px;
   cursor: default;
-}
-
-.functionColorMainMenu {
-  color: #cbc9a1;
-}
-
-.functionColorMobile {
-  display: none;
-}
-
-.functionColorInactiveMobile {
-  display: none;
-}
-
-/* --- Button styling --- */
-.buttonsContainer {
-  margin: auto;
-}
-
-#playButton {
-  margin-right: 1rem;
 }
 
 /* --- Removing default button styling --- */
