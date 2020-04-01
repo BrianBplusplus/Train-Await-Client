@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Levels from "./Levels";
+import Footer from "../Interface/Footer";
+import Train from "./Train";
+
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
+import EMPTY_TILE from "./tiles/EMPTY_TILE";
 import EXIT_TILE from "./tiles/EXIT_TILE";
-import Train from "./Train";
 
 import { rotateTile, nextLevel } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
 import { playGame } from "./functions/playGame";
-import Footer from "../Interface/Footer";
+import { dispatchLevelToStore } from "./functions/levels";
 
 export class GameContainer extends Component {
   rotateHandler = (tileData, tileId, tileRotation) => {
@@ -45,6 +47,10 @@ export class GameContainer extends Component {
     });
   };
 
+  componentDidMount() {
+    dispatchLevelToStore(0);
+  }
+
   render() {
     const { tiles, currentLevel } = this.props.levels;
     const { score } = this.props.score;
@@ -72,7 +78,6 @@ export class GameContainer extends Component {
               play!()
             </button>
           )}
-          <Levels />
           {!tiles && <p>loading</p>}
           <div className="gameBoard">
             {tiles &&
@@ -90,6 +95,10 @@ export class GameContainer extends Component {
                           <I_TILE key={tile.id} id={tile.id} tileData={tile.tileData} rotation={tile.rotation} rotateHandler={this.rotateHandler} />
                         );
                       }
+                      if (tile.shape === "EMPTY") {
+                        return <EMPTY_TILE key={tile.id} id={tile.id} tileData={tile.tileData} />;
+                      }
+
                       if (tile.shape === "EXIT") {
                         return <EXIT_TILE key={tile.id} id={tile.id} tileData={tile.tileData} tileExit={tile.exit} />;
                       }
@@ -109,10 +118,6 @@ export class GameContainer extends Component {
                   play!()
                 </button>
               )}
-
-              {/* <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
-                nextLevel()
-              </button> */}
             </div>
           </div>
         </div>

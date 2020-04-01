@@ -29,6 +29,20 @@ export const nextLevel = () => async (dispatch, getState) => {
   }
 };
 
+export const CLEAR_BOARD = "CLEAR_BOARD";
+
+const clearBoardSuccess = () => ({
+  type: CLEAR_BOARD
+});
+
+export const clearBoard = () => async (dispatch, getState) => {
+  try {
+    dispatch(clearBoardSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const ROTATE_TILE = "ROTATE_TILE";
 
 const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
@@ -38,7 +52,7 @@ const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
 
 export const rotateTile = (rotatedTile, x, y, rotatedDiv) => async (dispatch, getState) => {
   try {
-    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new class is", rotatedDiv);
+    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new rotation is", rotatedDiv);
     dispatch(rotateTileSuccess(rotatedTile, x, y, rotatedDiv));
   } catch (error) {
     console.error(error);
