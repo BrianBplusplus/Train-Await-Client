@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import store from "../../../store/store";
 
-import { startLevel } from "../../../store/levels/action";
+import { startLevel, clearBoard } from "../../../store/levels/action";
 import { resetTrain } from "../../../store/animation/action";
 
 const levels = [
@@ -126,6 +126,7 @@ const levels = [
 
 export const dispatchLevelToStore = currentLevel => {
   if (currentLevel < levels.length) {
+    store.dispatch(clearBoard());
     store.dispatch(startLevel(levels[currentLevel]));
     store.dispatch(resetTrain(levels[currentLevel][0].length));
   } else {

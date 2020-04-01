@@ -1,4 +1,4 @@
-import { START_LEVEL, NEXT_LEVEL, ROTATE_TILE } from "./action";
+import { START_LEVEL, NEXT_LEVEL, CLEAR_BOARD, ROTATE_TILE } from "./action";
 
 const initialState = { currentLevel: 0, rendered: false, tiles: null };
 
@@ -19,6 +19,13 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         rendered: false
+      };
+    }
+
+    case CLEAR_BOARD: {
+      return {
+        ...state,
+        tiles: null
       };
     }
 

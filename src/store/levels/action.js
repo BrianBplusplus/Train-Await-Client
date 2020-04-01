@@ -29,6 +29,20 @@ export const nextLevel = () => async (dispatch, getState) => {
   }
 };
 
+export const CLEAR_BOARD = "CLEAR_BOARD";
+
+const clearBoardSuccess = () => ({
+  type: CLEAR_BOARD
+});
+
+export const clearBoard = () => async (dispatch, getState) => {
+  try {
+    dispatch(clearBoardSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const ROTATE_TILE = "ROTATE_TILE";
 
 const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
