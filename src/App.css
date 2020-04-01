@@ -1,26 +1,195 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+
+/* --- Global declarations --- */
+body {
+  text-align: center;
+  font-family: "Inconsolata", monospace;
+  background-color: #484848;
+  margin: 0;
+}
+
+p {
+  color: #9bc8e5;
+}
+
+/* --- Component styling --- */
 .gameTopBar {
   text-align: center;
 }
 
-.up {
-  transform: rotate(0deg);
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  background-color: #3c3b3b;
 }
 
-.right {
+.tileImage {
+  width: 75px;
   transition: transform 0.3s ease;
-  transform: rotate(90deg);
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
-.down {
-  transition: transform 0.3s ease;
-  transform: rotate(180deg);
+/* --- Game styling --- */
+.gameBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4.5rem;
 }
 
-.left {
-  transition: transform 0.3s ease;
-  transform: rotate(270deg);
+.gameRow {
+  display: flex;
+  margin: auto;
+}
+
+.gameTile {
+  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 .train {
   transition: 0.5s linear;
+}
+
+/* --- Colors --- */
+.titleLeft {
+  color: #9bc8e5;
+}
+
+.titleRight {
+  color: #a47ea7;
+}
+
+.variableColor {
+  color: #5783ad;
+}
+
+.integerColor {
+  color: #adbc9d;
+}
+
+a,
+.linkColor {
+  color: #63a998;
+  text-decoration: none;
+}
+
+a:hover,
+.linkColor:hover {
+  color: #7fff00;
+}
+
+.commentColor {
+  color: #5c7249;
+}
+
+.functionColor {
+  color: #cbc9a1;
+  border: 1px solid;
+  padding: 0.5rem;
+  border-radius: 7px;
+}
+
+.functionColor:hover {
+  color: #ffff00;
+}
+
+.functionColor:active {
+  position: relative;
+  top: 2px;
+}
+
+.functionColorInactive {
+  color: gray;
+  border: 1px solid;
+  padding: 0.5rem;
+  border-radius: 7px;
+  cursor: default;
+}
+
+.functionColorMainMenu {
+  color: #cbc9a1;
+}
+
+.functionColorMobile {
+  display: none;
+}
+
+.functionColorInactiveMobile {
+  display: none;
+}
+
+/* --- Button styling --- */
+.buttonsContainer {
+  margin: auto;
+}
+
+#playButton {
+  margin-right: 1rem;
+}
+
+/* --- Removing default button styling --- */
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.mobile-break {
+  display: none;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 390px) {
+  .footer {
+    height: 4.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: #3c3b3b;
+  }
+
+  .gameBoard {
+    margin-top: 1.3rem;
+  }
+
+  .mobile-break {
+    display: block;
+  }
+
+  .functionColor,
+  .functionColorInactive {
+    display: none;
+  }
+
+  .functionColorMobile {
+    display: inline-block;
+    color: #cbc9a1;
+    border: 1px solid;
+    padding: 0.5rem;
+    border-radius: 7px;
+  }
+
+  .functionColorInactiveMobile {
+    display: inline-block;
+    color: gray;
+    border: 1px solid;
+    padding: 0.5rem;
+    border-radius: 7px;
+    cursor: default;
+  }
 }

@@ -1,13 +1,21 @@
 import store from "../../../store/store";
 import { moveTrain, resetTrain } from "../../../store/animation/action";
 import { nextLevel } from "../../../store/levels/action";
+import { increaseScore } from "../../../store/score/action";
 
 export const playGame = tiles => {
   console.clear();
   const startingY = 0;
   const startingX = 0;
+  let steps = 0;
+
+  const state = store.getState();
+  const arrayLength = state.levels.tiles[0].length;
+  console.log("arrayLength in playGame", arrayLength);
 
   const playGameNextTile = (y, x, entry) => {
+    steps = steps += 1;
+    console.log("step count", steps);
     setTimeout(() => {
       console.log("------ next tile ------");
       console.log("x", x, "y", y, "entry", entry);
@@ -15,20 +23,20 @@ export const playGame = tiles => {
       // --Checks if the train is out of bounds--
       if (y >= tiles.length || y < 0) {
         console.log("Out of bounds vertical");
-        store.dispatch(resetTrain());
+        store.dispatch(resetTrain(arrayLength));
         return;
       }
       if (x >= tiles[y].length || x < 0) {
         console.log("Out of bounds horizontal");
-        store.dispatch(resetTrain());
+        store.dispatch(resetTrain(arrayLength));
         return;
       }
       // --Checks if the train has reached its correct destination--
       if (tiles[y][x].exit === true) {
         console.log("exit has been reached, you have completed the level!");
         setTimeout(() => {
-          store.dispatch(resetTrain());
           store.dispatch(nextLevel());
+          store.dispatch(increaseScore(steps));
         }, 1000);
 
         return;
@@ -123,7 +131,7 @@ export const playGame = tiles => {
         }
       } else {
         console.log("you have crashed!");
-        store.dispatch(resetTrain());
+        store.dispatch(resetTrain(arrayLength));
       }
     }, 500);
   };
