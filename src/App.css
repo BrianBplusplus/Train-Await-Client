@@ -30,6 +30,11 @@ p {
   background-color: #3c3b3b;
 }
 
+.tileImage {
+  width: 75px;
+  transition: transform 0.3s ease;
+}
+
 /* --- Game styling --- */
 .gameBoard {
   display: flex;
@@ -122,28 +127,4 @@ input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
-}
-
-/* --- Rotation Handler --- */
-.up {
-  width: 75px;
-  transform: rotate(0deg);
-}
-
-.right {
-  width: 75px;
-  transition: transform 0.3s ease;
-  transform: rotate(90deg);
-}
-
-.down {
-  width: 75px;
-  transition: transform 0.3s ease;
-  transform: rotate(180deg);
-}
-
-.left {
-  width: 75px;
-  transition: transform 0.3s ease;
-  transform: rotate(270deg);
 }

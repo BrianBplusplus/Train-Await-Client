@@ -13,7 +13,7 @@ export default class EXIT_TILE extends Component {
           height: size
         }}
       >
-        <img className={this.props.class} src={image} alt="temporary" />
+        <img className={"tileImage"} src={image} alt="gameTile" />
       </div>
     );
   }

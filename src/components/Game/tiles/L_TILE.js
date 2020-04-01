@@ -3,7 +3,7 @@ import image from "../../../images/L_TILE.jpg";
 
 export default class L_TILE extends Component {
   handleClick = () => {
-    this.props.rotateHandler(this.props.tileData, this.props.id, this.props.class);
+    this.props.rotateHandler(this.props.tileData, this.props.id, this.props.rotation);
   };
 
   render() {
@@ -14,10 +14,12 @@ export default class L_TILE extends Component {
         className={"gameTile"}
         style={{
           width: size,
-          height: size
+          height: size,
+          transform: `rotate(${this.props.rotation}deg)`,
+          transition: "transform 0.3s ease"
         }}
       >
-        <img className={this.props.class} src={image} alt="temporary" />
+        <img className={"tileImage"} src={image} alt="gameTile" />
       </div>
     );
   }

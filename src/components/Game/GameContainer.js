@@ -13,7 +13,7 @@ import { playGame } from "./functions/playGame";
 import Footer from "../Interface/Footer";
 
 export class GameContainer extends Component {
-  rotateHandler = (tileData, tileId, tileClass) => {
+  rotateHandler = (tileData, tileId, tileRotation) => {
     console.log("----- rotateHandler -----");
     this.props.levels.tiles.map(mappedRows => {
       mappedRows.map(mappedTile => {
@@ -21,29 +21,22 @@ export class GameContainer extends Component {
           const x = this.props.levels.tiles.indexOf(mappedRows);
           const y = mappedRows.indexOf(mappedTile);
 
-          console.log("tile BEFORE", tileData, tileClass);
+          console.log("tile BEFORE", tileData, tileRotation);
 
           const rotateClockwise = ([up, right, down, left]) => {
             return [left, up, right, down];
           };
 
-          const rotateTileClass = tileClass => {
-            if (tileClass === "up") {
-              return "right";
-            } else if (tileClass === "right") {
-              return "down";
-            } else if (tileClass === "down") {
-              return "left";
-            } else if (tileClass === "left") {
-              return "up";
-            }
+          const rotateTileDiv = tileRotation => {
+            return (tileRotation += 90);
           };
 
           const newTileData = rotateClockwise(tileData);
-          const newTileClass = rotateTileClass(tileClass);
-          console.log("tile AFTER", newTileData, newTileClass);
+          const newTileRotatedDiv = rotateTileDiv(tileRotation);
 
-          this.props.rotateTile(newTileData, x, y, newTileClass);
+          console.log("tile AFTER", newTileData, newTileRotatedDiv);
+
+          this.props.rotateTile(newTileData, x, y, newTileRotatedDiv);
           console.log("-------------------------");
         }
         return null;
@@ -78,13 +71,17 @@ export class GameContainer extends Component {
                   <div key={index} className="gameRow">
                     {rows.map(tile => {
                       if (tile.shape === "L") {
-                        return <L_TILE key={tile.id} id={tile.id} tileData={tile.tileData} class={tile.class} rotateHandler={this.rotateHandler} />;
+                        return (
+                          <L_TILE key={tile.id} id={tile.id} tileData={tile.tileData} rotation={tile.rotation} rotateHandler={this.rotateHandler} />
+                        );
                       }
                       if (tile.shape === "I") {
-                        return <I_TILE key={tile.id} id={tile.id} tileData={tile.tileData} class={tile.class} rotateHandler={this.rotateHandler} />;
+                        return (
+                          <I_TILE key={tile.id} id={tile.id} tileData={tile.tileData} rotation={tile.rotation} rotateHandler={this.rotateHandler} />
+                        );
                       }
                       if (tile.shape === "EXIT") {
-                        return <EXIT_TILE key={tile.id} id={tile.id} tileData={tile.tileData} class={tile.class} tileExit={tile.exit} />;
+                        return <EXIT_TILE key={tile.id} id={tile.id} tileData={tile.tileData} tileExit={tile.exit} />;
                       }
                       return null;
                     })}

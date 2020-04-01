@@ -31,15 +31,15 @@ export const nextLevel = () => async (dispatch, getState) => {
 
 export const ROTATE_TILE = "ROTATE_TILE";
 
-const rotateTileSuccess = (rotatedTile, x, y, rotatedClass) => ({
+const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
   type: ROTATE_TILE,
-  payload: { rotatedTile, x, y, rotatedClass }
+  payload: { rotatedTile, x, y, rotatedDiv }
 });
 
-export const rotateTile = (rotatedTile, x, y, rotatedClass) => async (dispatch, getState) => {
+export const rotateTile = (rotatedTile, x, y, rotatedDiv) => async (dispatch, getState) => {
   try {
-    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new class is", rotatedClass);
-    dispatch(rotateTileSuccess(rotatedTile, x, y, rotatedClass));
+    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new class is", rotatedDiv);
+    dispatch(rotateTileSuccess(rotatedTile, x, y, rotatedDiv));
   } catch (error) {
     console.error(error);
   }

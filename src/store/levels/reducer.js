@@ -23,17 +23,17 @@ export default (state = initialState, action = {}) => {
     }
 
     case ROTATE_TILE: {
-      const { x, y, rotatedTile, rotatedClass } = action.payload;
+      const { x, y, rotatedTile, rotatedDiv } = action.payload;
       const newState = { ...state };
       newState.tiles = state.tiles.map((currentTile, index) => {
         if (index === x) {
           return currentTile.map((tile, index) => {
             if (index === y) {
-              console.log("reducer BEFORE", tile.tileData, tile.class);
+              console.log("reducer BEFORE", tile.tileData, tile.rotation);
               const newTile = { ...tile };
               newTile.tileData = rotatedTile;
-              newTile.class = rotatedClass;
-              console.log("reducer AFTER", newTile.tileData, newTile.class);
+              newTile.rotation = rotatedDiv;
+              console.log("reducer AFTER", newTile.tileData, newTile.rotation);
 
               return newTile;
             }
