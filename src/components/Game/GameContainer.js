@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Levels from "./Levels";
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
+import EMPTY_TILE from "./tiles/EMPTY_TILE";
 import EXIT_TILE from "./tiles/EXIT_TILE";
 import Train from "./Train";
 
@@ -90,6 +91,10 @@ export class GameContainer extends Component {
                           <I_TILE key={tile.id} id={tile.id} tileData={tile.tileData} rotation={tile.rotation} rotateHandler={this.rotateHandler} />
                         );
                       }
+                      if (tile.shape === "EMPTY") {
+                        return <EMPTY_TILE key={tile.id} id={tile.id} tileData={tile.tileData} />;
+                      }
+
                       if (tile.shape === "EXIT") {
                         return <EXIT_TILE key={tile.id} id={tile.id} tileData={tile.tileData} tileExit={tile.exit} />;
                       }
@@ -110,9 +115,9 @@ export class GameContainer extends Component {
                 </button>
               )}
 
-              {/* <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
+              <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
                 nextLevel()
-              </button> */}
+              </button>
             </div>
           </div>
         </div>
