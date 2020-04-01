@@ -48,6 +48,7 @@ export class GameContainer extends Component {
   render() {
     const { tiles, currentLevel } = this.props.levels;
     const { score } = this.props.score;
+    const { moving } = this.props.train;
     const { train } = this.props;
     return (
       <div>
@@ -89,9 +90,17 @@ export class GameContainer extends Component {
                 );
               })}
             <div className="buttonsContainer">
-              <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
-                play!()
-              </button>
+              {!moving && (
+                <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
+                  play!()
+                </button>
+              )}
+              {moving && (
+                <button className="functionColorInactive" id="playButton">
+                  play!()
+                </button>
+              )}
+
               {/* <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
                 nextLevel()
               </button> */}

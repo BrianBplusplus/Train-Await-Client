@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
 
 /* --- Global declarations --- */
-html {
-}
-
 body {
   text-align: center;
   font-family: "Inconsolata", monospace;
@@ -100,6 +97,19 @@ a:hover,
   color: #ffff00;
 }
 
+.functionColor:active {
+  position: relative;
+  top: 2px;
+}
+
+.functionColorInactive {
+  color: gray;
+  border: 1px solid;
+  padding: 0.5rem;
+  border-radius: 7px;
+  cursor: default;
+}
+
 .functionColorMainMenu {
   color: #cbc9a1;
 }
@@ -111,9 +121,6 @@ a:hover,
 
 #playButton {
   margin-right: 1rem;
-}
-
-#nextLevelButton {
 }
 
 /* --- Removing default button styling --- */
