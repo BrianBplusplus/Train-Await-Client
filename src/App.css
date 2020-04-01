@@ -150,6 +150,15 @@ input[type="reset"] {
   outline: inherit;
 }
 
+.desktopPlayButton {
+  display: block;
+  margin: auto;
+}
+
+.mobilePlayButton {
+  display: none;
+}
+
 .mobile-break {
   display: none;
 }
@@ -171,25 +180,12 @@ input[type="reset"] {
     display: block;
   }
 
-  .functionColor,
-  .functionColorInactive {
+  .desktopPlayButton {
     display: none;
   }
 
-  .functionColorMobile {
-    display: inline-block;
-    color: #cbc9a1;
-    border: 1px solid;
-    padding: 0.5rem;
-    border-radius: 7px;
-  }
-
-  .functionColorInactiveMobile {
-    display: inline-block;
-    color: gray;
-    border: 1px solid;
-    padding: 0.5rem;
-    border-radius: 7px;
-    cursor: default;
+  .mobilePlayButton {
+    display: block;
+    margin: auto;
   }
 }

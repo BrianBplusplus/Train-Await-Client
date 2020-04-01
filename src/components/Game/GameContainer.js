@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import Footer from "../Interface/Footer";
 import Train from "./Train";
+import PlayButton from "./PlayButton";
 
 import L_TILE from "./tiles/L_TILE";
 import I_TILE from "./tiles/I_TILE";
@@ -11,7 +12,6 @@ import EXIT_TILE from "./tiles/EXIT_TILE";
 
 import { rotateTile, nextLevel } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
-import { playGame } from "./functions/playGame";
 import { dispatchLevelToStore } from "./functions/levels";
 
 export class GameContainer extends Component {
@@ -54,7 +54,6 @@ export class GameContainer extends Component {
   render() {
     const { tiles, currentLevel } = this.props.levels;
     const { score } = this.props.score;
-    const { moving } = this.props.train;
     const { train } = this.props;
     return (
       <div>
@@ -68,16 +67,7 @@ export class GameContainer extends Component {
 
         <div>
           <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />
-          {!moving && (
-            <button className="functionColorMobile" id="playButton" onClick={() => playGame(tiles)}>
-              play!()
-            </button>
-          )}
-          {moving && (
-            <button className="functionColorInactiveMobile" id="playButton">
-              play!()
-            </button>
-          )}
+          <PlayButton class="mobilePlayButton" />
           {!tiles && <p>loading</p>}
           <div className="gameBoard">
             {tiles &&
@@ -107,18 +97,8 @@ export class GameContainer extends Component {
                   </div>
                 );
               })}
-            <div className="buttonsContainer">
-              {!moving && (
-                <button className="functionColor" id="playButton" onClick={() => playGame(tiles)}>
-                  play!()
-                </button>
-              )}
-              {moving && (
-                <button className="functionColorInactive" id="playButton">
-                  play!()
-                </button>
-              )}
-            </div>
+
+            <PlayButton class="desktopPlayButton" />
           </div>
         </div>
         <Footer />
