@@ -24,14 +24,7 @@ export class GameContainer extends Component {
           const x = this.props.levels.tiles.indexOf(mappedRows);
           const y = mappedRows.indexOf(mappedTile);
 
-          console.log("tile BEFORE", tileData, tileRotation);
-
-          const newTileData = rotateTileData(tileData);
-          const newTileRotatedDiv = rotateTileImage(tileRotation);
-
-          console.log("tile AFTER", newTileData, newTileRotatedDiv);
-
-          this.props.rotateTile(newTileData, x, y, newTileRotatedDiv);
+          this.props.rotateTile(rotateTileData(tileData), x, y, rotateTileImage(tileRotation));
           console.log("-------------------------");
         }
         return null;
