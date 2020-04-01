@@ -48,7 +48,7 @@ export class GameContainer extends Component {
   };
 
   componentDidMount() {
-    dispatchLevelToStore();
+    dispatchLevelToStore(0);
   }
 
   render() {
@@ -118,10 +118,6 @@ export class GameContainer extends Component {
                   play!()
                 </button>
               )}
-
-              {/* <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
-                nextLevel()
-              </button> */}
             </div>
           </div>
         </div>

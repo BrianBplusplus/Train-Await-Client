@@ -38,7 +38,7 @@ const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
 
 export const rotateTile = (rotatedTile, x, y, rotatedDiv) => async (dispatch, getState) => {
   try {
-    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new class is", rotatedDiv);
+    console.log("rotateTile action triggered on tile", x, y, "new tiledata is", rotatedTile, "new rotation is", rotatedDiv);
     dispatch(rotateTileSuccess(rotatedTile, x, y, rotatedDiv));
   } catch (error) {
     console.error(error);

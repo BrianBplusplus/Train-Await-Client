@@ -12,7 +12,6 @@ export const playGame = tiles => {
 
   const state = store.getState();
   const arrayLength = state.levels.tiles[0].length;
-  console.log("arrayLength in playGame", arrayLength);
 
   const playGameNextTile = (y, x, entry) => {
     steps = steps += 1;
@@ -37,7 +36,7 @@ export const playGame = tiles => {
         console.log("exit has been reached, you have completed the level!");
         setTimeout(() => {
           store.dispatch(nextLevel());
-          dispatchLevelToStore();
+          dispatchLevelToStore(state.levels.currentLevel);
           store.dispatch(increaseScore(steps));
         }, 1000);
 
