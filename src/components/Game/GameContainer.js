@@ -57,8 +57,7 @@ export class GameContainer extends Component {
         </h1>
         <p className="gameTopBar">
           <span className="variableColor">Level:</span> <span className="integerColor">{currentLevel}</span>{" "}
-          <span className="variableColor">Lives:</span> <span className="integerColor">{3}</span> <span className="variableColor">Score:</span>{" "}
-          <span className="integerColor">{score}</span>
+          <span className="variableColor">Score:</span> <span className="integerColor">{score}</span>
         </p>
 
         <div>

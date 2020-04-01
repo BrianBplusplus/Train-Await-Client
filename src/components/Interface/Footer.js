@@ -12,6 +12,7 @@ export default class Footer extends Component {
           <a href="https://www.linkedin.com/in/brian-nieuwenhuijzen/">
             {"<Link to = "} <FontAwesomeIcon icon={faLinkedin} /> {"LinkedIn />"}
           </a>
+          <br class="mobile-break"></br>
           {"   "}
           <a href="https://github.com/BrianBplusplus ">
             {"<Link to = "} <FontAwesomeIcon icon={faGithub} />

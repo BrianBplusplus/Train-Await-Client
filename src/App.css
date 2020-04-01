@@ -141,3 +141,20 @@ input[type="reset"] {
   cursor: pointer;
   outline: inherit;
 }
+
+.mobile-break {
+  display: none;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 375px) {
+  .footer {
+    height: 4.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: #3c3b3b;
+  }
+  .mobile-break {
+    display: block;
+  }
+}
