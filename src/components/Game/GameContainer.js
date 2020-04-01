@@ -13,6 +13,7 @@ import EXIT_TILE from "./tiles/EXIT_TILE";
 import { rotateTile, nextLevel } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
 import { dispatchLevelToStore } from "./functions/levels";
+import { rotateTileData, rotateTileImage } from "./functions/rotations";
 
 export class GameContainer extends Component {
   rotateHandler = (tileData, tileId, tileRotation) => {
@@ -25,16 +26,8 @@ export class GameContainer extends Component {
 
           console.log("tile BEFORE", tileData, tileRotation);
 
-          const rotateClockwise = ([up, right, down, left]) => {
-            return [left, up, right, down];
-          };
-
-          const rotateTileDiv = tileRotation => {
-            return (tileRotation += 90);
-          };
-
-          const newTileData = rotateClockwise(tileData);
-          const newTileRotatedDiv = rotateTileDiv(tileRotation);
+          const newTileData = rotateTileData(tileData);
+          const newTileRotatedDiv = rotateTileImage(tileRotation);
 
           console.log("tile AFTER", newTileData, newTileRotatedDiv);
 
@@ -60,7 +53,7 @@ export class GameContainer extends Component {
         <h1>
           <span className="titleLeft">train</span> <span className="titleRight">await</span>
         </h1>
-        <p className="gameTopBar">
+        <p>
           <span className="variableColor">Level:</span> <span className="integerColor">{currentLevel}</span>{" "}
           <span className="variableColor">Score:</span> <span className="integerColor">{score}</span>
         </p>
