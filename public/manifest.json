@@ -1,6 +1,6 @@
 {
   "short_name": "Train Await",
-  "name": "Train Await portfolio project",
+  "name": "Portfolio project from Brian Nieuwenhuijzen. Rotate train tracks to make the train reach its destination",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
