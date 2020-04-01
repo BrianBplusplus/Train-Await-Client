@@ -115,9 +115,9 @@ export class GameContainer extends Component {
                 </button>
               )}
 
-              <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
+              {/* <button className="functionColor" id="nextLevelButton" onClick={() => this.props.nextLevel()}>
                 nextLevel()
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
