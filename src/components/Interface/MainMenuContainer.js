@@ -30,6 +30,10 @@ export class MainMenuContainer extends Component {
           playGame()
         </Link>
 
+        <Link className="functionColorMobile" to="/game">
+          playGame()
+        </Link>
+
         <Footer />
       </div>
     );

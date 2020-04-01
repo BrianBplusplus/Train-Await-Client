@@ -155,7 +155,7 @@ input[type="reset"] {
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 390px) {
   .footer {
     height: 4.5rem;
     padding-top: 0.3rem;
