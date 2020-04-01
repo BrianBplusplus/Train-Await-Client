@@ -28,6 +28,24 @@ const level1 = [
 const level2 = [
   [
     <L_TILE shape={"L"} id={1} tileData={[true, true, null, null]} rotation={270} />,
+    <I_TILE shape={"I"} id={2} tileData={[true, null, true, null]} rotation={0} />,
+    <L_TILE shape={"L"} id={3} tileData={[null, true, true, null]} rotation={0} />
+  ],
+  [
+    <I_TILE shape={"I"} id={4} tileData={[null, true, null, true]} rotation={90} />,
+    <L_TILE shape={"L"} id={5} tileData={[true, null, null, true]} rotation={180} />,
+    <L_TILE shape={"L"} id={6} tileData={[true, null, null, true]} rotation={180} />
+  ],
+  [
+    <I_TILE shape={"I"} id={7} tileData={[true, null, true, null]} rotation={0} />,
+    <L_TILE shape={"L"} id={8} tileData={[null, true, true, null]} rotation={0} />,
+    <EXIT_TILE shape={"EXIT"} id={9} tileData={[true, null, null, true]} exit={true} />
+  ]
+];
+
+const level3 = [
+  [
+    <L_TILE shape={"L"} id={1} tileData={[true, true, null, null]} rotation={270} />,
     <L_TILE shape={"L"} id={2} tileData={[null, true, true, null]} rotation={0} />,
     <L_TILE shape={"L"} id={3} tileData={[null, null, true, true]} rotation={90} />,
     <L_TILE shape={"L"} id={4} tileData={[true, true, null, null]} rotation={270} />
@@ -52,7 +70,7 @@ const level2 = [
   ]
 ];
 
-const level3 = [
+const level4 = [
   [
     <L_TILE shape={"L"} id={1} tileData={[true, true, null, null]} rotation={270} />,
     <L_TILE shape={"L"} id={2} tileData={[null, true, true, null]} rotation={0} />,
@@ -96,6 +114,11 @@ class Levels extends Component {
     if (currentLevel === 2 && !rendered) {
       this.props.startLevel(level3);
       this.props.resetTrain(level3[0].length);
+    }
+
+    if (currentLevel === 3 && !rendered) {
+      this.props.startLevel(level4);
+      this.props.resetTrain(level4[0].length);
     }
 
     return null;
