@@ -62,6 +62,16 @@ export class GameContainer extends Component {
 
         <div>
           <Train className="train" moveTrain={this.moveTrain} x={train.x} y={train.y} />
+          {!moving && (
+            <button className="functionColorMobile" id="playButton" onClick={() => playGame(tiles)}>
+              play!()
+            </button>
+          )}
+          {moving && (
+            <button className="functionColorInactiveMobile" id="playButton">
+              play!()
+            </button>
+          )}
           <Levels />
           {!tiles && <p>loading</p>}
           <div className="gameBoard">

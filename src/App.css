@@ -120,6 +120,14 @@ a:hover,
   color: #cbc9a1;
 }
 
+.functionColorMobile {
+  display: none;
+}
+
+.functionColorInactiveMobile {
+  display: none;
+}
+
 /* --- Button styling --- */
 .buttonsContainer {
   margin: auto;
@@ -154,7 +162,34 @@ input[type="reset"] {
     padding-bottom: 0.3rem;
     background-color: #3c3b3b;
   }
+
+  .gameBoard {
+    margin-top: 1.3rem;
+  }
+
   .mobile-break {
     display: block;
+  }
+
+  .functionColor,
+  .functionColorInactive {
+    display: none;
+  }
+
+  .functionColorMobile {
+    display: inline-block;
+    color: #cbc9a1;
+    border: 1px solid;
+    padding: 0.5rem;
+    border-radius: 7px;
+  }
+
+  .functionColorInactiveMobile {
+    display: inline-block;
+    color: gray;
+    border: 1px solid;
+    padding: 0.5rem;
+    border-radius: 7px;
+    cursor: default;
   }
 }
