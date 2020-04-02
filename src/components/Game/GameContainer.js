@@ -62,16 +62,38 @@ export class GameContainer extends Component {
                     {rows.map(tile => {
                       if (tile.shape === "L") {
                         return (
-                          <L_TILE key={tile.id} id={tile.id} tileData={tile.tileData} rotation={tile.rotation} rotateHandler={this.rotateHandler} />
+                          <L_TILE
+                            key={tile.id}
+                            id={tile.id}
+                            tileData={tile.tileData}
+                            startingTile={tile.startingTile}
+                            rotation={tile.rotation}
+                            rotateHandler={this.rotateHandler}
+                          />
                         );
                       }
                       if (tile.shape === "I") {
                         return (
-                          <I_TILE key={tile.id} id={tile.id} tileData={tile.tileData} rotation={tile.rotation} rotateHandler={this.rotateHandler} />
+                          <I_TILE
+                            key={tile.id}
+                            id={tile.id}
+                            tileData={tile.tileData}
+                            startingTile={tile.startingTile}
+                            rotation={tile.rotation}
+                            rotateHandler={this.rotateHandler}
+                          />
                         );
                       }
                       if (tile.shape === "EMPTY") {
-                        return <EMPTY_TILE key={tile.id} id={tile.id} tileData={tile.tileData} />;
+                        return (
+                          <EMPTY_TILE
+                            key={tile.id}
+                            id={tile.id}
+                            tileData={tile.tileData}
+                            rotation={tile.rotation}
+                            rotateHandler={this.rotateHandler}
+                          />
+                        );
                       }
 
                       if (tile.shape === "EXIT") {
