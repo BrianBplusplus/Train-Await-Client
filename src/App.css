@@ -65,12 +65,20 @@ p {
   color: #a47ea7;
 }
 
+.parameterColor {
+  color: #9bc8e5;
+}
+
 .variableColor {
   color: #5783ad;
 }
 
 .integerColor {
   color: #adbc9d;
+}
+
+.stringColor {
+  color: #a07a67;
 }
 
 a,
@@ -90,6 +98,10 @@ a:hover,
 
 .functionColorMainMenu {
   color: #cbc9a1;
+}
+
+#endScreenScore {
+  font-size: 40px;
 }
 
 /* --- Button styling --- */

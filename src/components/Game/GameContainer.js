@@ -36,10 +36,17 @@ export class GameContainer extends Component {
     dispatchLevelToStore(0);
   }
 
+  componentDidUpdate() {
+    if (this.props.levels.gameFinished === true) {
+      this.props.history.push("/endscreen");
+    }
+  }
+
   render() {
     const { tiles, currentLevel } = this.props.levels;
     const { score } = this.props.score;
     const { train } = this.props;
+
     return (
       <div>
         <h1>

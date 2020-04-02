@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
-export class MainMenuContainer extends Component {
+export default class MainMenuContainer extends Component {
   render() {
     return (
       <div>
@@ -25,7 +24,7 @@ export class MainMenuContainer extends Component {
             <span className="integerColor">score</span>
           </p>
         </span>
-
+        <br></br>
         <Link className="functionColor" to="/game">
           playGame()
         </Link>
@@ -35,8 +34,3 @@ export class MainMenuContainer extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = {};
-export default connect(mapStateToProps, mapDispatchToProps)(MainMenuContainer);

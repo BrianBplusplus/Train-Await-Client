@@ -1,6 +1,6 @@
-import { START_LEVEL, NEXT_LEVEL, CLEAR_BOARD, ROTATE_TILE } from "./action";
+import { START_LEVEL, NEXT_LEVEL, CLEAR_BOARD, END_GAME, ROTATE_TILE } from "./action";
 
-const initialState = { currentLevel: 0, rendered: false, tiles: null };
+const initialState = { currentLevel: 0, rendered: false, tiles: null, gameFinished: false };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
@@ -26,6 +26,13 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         tiles: null
+      };
+    }
+
+    case END_GAME: {
+      return {
+        ...state,
+        gameFinished: true
       };
     }
 

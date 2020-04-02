@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import store from "../../../store/store";
 
-import { startLevel, clearBoard } from "../../../store/levels/action";
+import { startLevel, clearBoard, endGame } from "../../../store/levels/action";
 import { resetTrain } from "../../../store/animation/action";
 
 const levels = [
@@ -150,5 +150,6 @@ export const dispatchLevelToStore = currentLevel => {
     store.dispatch(resetTrain(levels[currentLevel][0].length));
   } else {
     console.log("End of the game has been reached! Congrats!");
+    store.dispatch(endGame());
   }
 };

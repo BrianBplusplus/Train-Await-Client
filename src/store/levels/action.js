@@ -43,6 +43,20 @@ export const clearBoard = () => async (dispatch, getState) => {
   }
 };
 
+export const END_GAME = "END_GAME";
+
+const endGameSuccess = () => ({
+  type: END_GAME
+});
+
+export const endGame = () => async (dispatch, getState) => {
+  try {
+    dispatch(endGameSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const ROTATE_TILE = "ROTATE_TILE";
 
 const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
