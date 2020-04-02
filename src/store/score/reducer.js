@@ -7,7 +7,12 @@ export default (state = initialState, action = {}) => {
   switch (action.type) {
     case INCREASE_SCORE: {
       const actionScore = state.score + action.payload;
-      const newScore = actionScore - state.rotations * 5;
+      let newScore = actionScore - state.rotations * 5;
+
+      if (newScore <= 0) {
+        newScore = 10;
+      }
+
       return { ...state, score: newScore, rotations: 0 };
     }
 
