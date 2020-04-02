@@ -18,18 +18,17 @@ import { rotateTileData, rotateTileImage } from "./functions/rotations";
 export class GameContainer extends Component {
   rotateHandler = (tileData, tileId, tileRotation) => {
     console.log("----- rotateHandler -----");
-    this.props.levels.tiles.map(mappedRows => {
-      mappedRows.map(mappedTile => {
-        if (mappedTile.id === tileId) {
-          const x = this.props.levels.tiles.indexOf(mappedRows);
-          const y = mappedRows.indexOf(mappedTile);
+    this.props.levels.tiles.forEach(rows => {
+      rows.find(rowTile => {
+        if (rowTile.id === tileId) {
+          const x = this.props.levels.tiles.indexOf(rows);
+          const y = rows.indexOf(rowTile);
 
           this.props.rotateTile(rotateTileData(tileData), x, y, rotateTileImage(tileRotation));
           console.log("-------------------------");
         }
         return null;
       });
-      return null;
     });
   };
 

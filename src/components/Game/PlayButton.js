@@ -9,12 +9,13 @@ export class PlayButton extends Component {
     const { moving } = this.props.train;
     return (
       <div className={this.props.class}>
-        {!moving && (
+        {!moving ? (
           <button className="functionColor" onClick={() => playGame(tiles)}>
             play!()
           </button>
+        ) : (
+          <button className="functionColorInactive">play!()</button>
         )}
-        {moving && <button className="functionColorInactive">play!()</button>}
       </div>
     );
   }
