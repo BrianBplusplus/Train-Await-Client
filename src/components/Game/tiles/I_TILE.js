@@ -3,7 +3,9 @@ import image from "../../../images/I_TILE.jpg";
 
 export default class I_TILE extends Component {
   handleClick = () => {
-    this.props.rotateHandler(this.props.tileData, this.props.id, this.props.rotation);
+    if (!this.props.startingTile) {
+      this.props.rotateHandler(this.props.tileData, this.props.id, this.props.rotation);
+    }
   };
 
   render() {

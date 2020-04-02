@@ -13,10 +13,6 @@ p {
 }
 
 /* --- Component styling --- */
-.gameTopBar {
-  text-align: center;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -69,12 +65,20 @@ p {
   color: #a47ea7;
 }
 
+.parameterColor {
+  color: #9bc8e5;
+}
+
 .variableColor {
   color: #5783ad;
 }
 
 .integerColor {
   color: #adbc9d;
+}
+
+.stringColor {
+  color: #a07a67;
 }
 
 a,
@@ -92,6 +96,15 @@ a:hover,
   color: #5c7249;
 }
 
+.functionColorMainMenu {
+  color: #cbc9a1;
+}
+
+#endScreenScore {
+  font-size: 40px;
+}
+
+/* --- Button styling --- */
 .functionColor {
   color: #cbc9a1;
   border: 1px solid;
@@ -116,27 +129,6 @@ a:hover,
   cursor: default;
 }
 
-.functionColorMainMenu {
-  color: #cbc9a1;
-}
-
-.functionColorMobile {
-  display: none;
-}
-
-.functionColorInactiveMobile {
-  display: none;
-}
-
-/* --- Button styling --- */
-.buttonsContainer {
-  margin: auto;
-}
-
-#playButton {
-  margin-right: 1rem;
-}
-
 /* --- Removing default button styling --- */
 button,
 input[type="submit"],
@@ -148,6 +140,15 @@ input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.desktopPlayButton {
+  display: block;
+  margin: auto;
+}
+
+.mobilePlayButton {
+  display: none;
 }
 
 .mobile-break {
@@ -171,25 +172,12 @@ input[type="reset"] {
     display: block;
   }
 
-  .functionColor,
-  .functionColorInactive {
+  .desktopPlayButton {
     display: none;
   }
 
-  .functionColorMobile {
-    display: inline-block;
-    color: #cbc9a1;
-    border: 1px solid;
-    padding: 0.5rem;
-    border-radius: 7px;
-  }
-
-  .functionColorInactiveMobile {
-    display: inline-block;
-    color: gray;
-    border: 1px solid;
-    padding: 0.5rem;
-    border-radius: 7px;
-    cursor: default;
+  .mobilePlayButton {
+    display: block;
+    margin: auto;
   }
 }

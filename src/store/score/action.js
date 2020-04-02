@@ -14,3 +14,17 @@ export const increaseScore = steps => async (dispatch, getState) => {
     console.error(error);
   }
 };
+
+export const RETURN_TO_MAIN_MENU = "RETURN_TO_MAIN_MENU";
+
+const returnToMainMenuSuccess = () => ({
+  type: RETURN_TO_MAIN_MENU
+});
+
+export const returnToMainMenu = () => async (dispatch, getState) => {
+  try {
+    dispatch(returnToMainMenuSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};

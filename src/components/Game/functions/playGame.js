@@ -158,7 +158,7 @@ export const playGame = tiles => {
 
       if (tiles[startingY][startingX].tileData[2] === true && entry !== 2) {
         console.log("And exited from the Bottom");
-        const newY = startingY - 1;
+        const newY = startingY + 1;
         store.dispatch(moveTrain("down"));
         playGameNextTile(newY, startingX, 0);
       }
