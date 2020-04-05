@@ -1,4 +1,4 @@
-import { START_LEVEL, NEXT_LEVEL, CLEAR_BOARD, END_GAME, ROTATE_TILE } from "./action";
+import { START_LEVEL, NEXT_LEVEL, CLEAR_BOARD, END_GAME, END_GAME_RESET_TRIGGER, ROTATE_TILE } from "./action";
 
 const initialState = { currentLevel: 0, rendered: false, tiles: null, gameFinished: false };
 
@@ -33,6 +33,13 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         gameFinished: true
+      };
+    }
+
+    case END_GAME_RESET_TRIGGER: {
+      return {
+        ...state,
+        gameFinished: false
       };
     }
 

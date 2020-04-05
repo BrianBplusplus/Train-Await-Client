@@ -10,12 +10,28 @@ import I_TILE from "./tiles/I_TILE";
 import EMPTY_TILE from "./tiles/EMPTY_TILE";
 import EXIT_TILE from "./tiles/EXIT_TILE";
 
-import { rotateTile, nextLevel } from "../../store/levels/action";
+import { rotateTile, nextLevel, endGameResetTrigger } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
 import { dispatchLevelToStore } from "./functions/levels";
 import { rotateTileData, rotateTileImage } from "./functions/rotations";
 
 export class GameContainer extends Component {
+  componentDidMount() {
+    dispatchLevelToStore(0);
+    window.addEventListener("resize", this.resetTrainOnScreenResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resetTrainOnScreenResize);
+  }
+
+  componentDidUpdate() {
+    if (this.props.levels.gameFinished === true) {
+      this.props.endGameResetTrigger();
+      this.props.history.push("/endscreen");
+    }
+  }
+
   rotateHandler = (tileData, tileId, tileRotation) => {
     console.log("----- rotateHandler -----");
     this.props.levels.tiles.forEach(rows => {
@@ -32,15 +48,11 @@ export class GameContainer extends Component {
     });
   };
 
-  componentDidMount() {
-    dispatchLevelToStore(0);
-  }
-
-  componentDidUpdate() {
-    if (this.props.levels.gameFinished === true) {
-      this.props.history.push("/endscreen");
+  resetTrainOnScreenResize = () => {
+    if (!this.props.train.moving) {
+      this.props.resetTrain(this.props.levels.tiles[0].length);
     }
-  }
+  };
 
   render() {
     const { tiles, currentLevel } = this.props.levels;
@@ -123,6 +135,6 @@ export class GameContainer extends Component {
 
 const mapStateToProps = state => ({ levels: state.levels, train: state.train, score: state.score });
 
-const mapDispatchToProps = { rotateTile, nextLevel, resetTrain };
+const mapDispatchToProps = { rotateTile, nextLevel, resetTrain, endGameResetTrigger };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);
