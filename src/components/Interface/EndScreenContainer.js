@@ -44,8 +44,8 @@ export class EndScreenContainer extends Component {
           </a>
           <span className="variableColor">{"}"}</span>`<br></br>
           <br></br>
-          `Interested in my other projects? check out my{" "}
-          <a className="parameterColor" href="https://github.com/BrianBplusplus">
+          `Interested in the code? check it out on{" "}
+          <a className="parameterColor" href="https://github.com/BrianBplusplus/Train-Await-Client">
             <span className="variableColor">${"{"}</span> <FontAwesomeIcon icon={faGithub} /> Github{" "}
           </a>
           <span className="variableColor">{"}"}</span>`
