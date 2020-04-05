@@ -10,7 +10,7 @@ import I_TILE from "./tiles/I_TILE";
 import EMPTY_TILE from "./tiles/EMPTY_TILE";
 import EXIT_TILE from "./tiles/EXIT_TILE";
 
-import { rotateTile, nextLevel } from "../../store/levels/action";
+import { rotateTile, nextLevel, endGameResetTrigger } from "../../store/levels/action";
 import { resetTrain } from "../../store/animation/action";
 import { dispatchLevelToStore } from "./functions/levels";
 import { rotateTileData, rotateTileImage } from "./functions/rotations";
@@ -27,6 +27,7 @@ export class GameContainer extends Component {
 
   componentDidUpdate() {
     if (this.props.levels.gameFinished === true) {
+      this.props.endGameResetTrigger();
       this.props.history.push("/endscreen");
     }
   }
@@ -134,6 +135,6 @@ export class GameContainer extends Component {
 
 const mapStateToProps = state => ({ levels: state.levels, train: state.train, score: state.score });
 
-const mapDispatchToProps = { rotateTile, nextLevel, resetTrain };
+const mapDispatchToProps = { rotateTile, nextLevel, resetTrain, endGameResetTrigger };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);

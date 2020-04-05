@@ -57,6 +57,20 @@ export const endGame = () => async (dispatch, getState) => {
   }
 };
 
+export const END_GAME_RESET_TRIGGER = "END_GAME_RESET_TRIGGER";
+
+const endGameResetTriggerSuccess = () => ({
+  type: END_GAME_RESET_TRIGGER
+});
+
+export const endGameResetTrigger = () => async (dispatch, getState) => {
+  try {
+    dispatch(endGameResetTriggerSuccess());
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const ROTATE_TILE = "ROTATE_TILE";
 
 const rotateTileSuccess = (rotatedTile, x, y, rotatedDiv) => ({
