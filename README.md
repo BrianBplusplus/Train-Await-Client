@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🚂 Train Await 🚂
 
-## Available Scripts
+## About this game
 
-In the project directory, you can run:
+In this game the player has to guide the train to the station but the train tracks are all wrong!
 
-### `npm start`
+Rotate the train tracks by clicking on them. Once all the train tracks are in place press play to make the train move.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If the train travels a longer distance you get a higher score however, rotating the train tracks too much reduces your score. Try finding the optimal route for the highest score possible.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[🚂 Play the game here 🚂](https://train-await.netlify.com/)
 
-### `npm test`
+## Table of contents
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Game demo](#game-demo)
+- [Technologies used](#technologies-used)
+- [Goals for this project](#goals-for-this-project)
+- [Workflow](#workflow)
 
-### `npm run build`
+## Game demo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](trainawaitgif1.gif) ![](trainawaitgif2.gif)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Technologies used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Click on the links to see samples from this project
 
-### `npm run eject`
+[HTML & CSS](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Interface/EndScreenContainer.js)
+[JavaScript](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Game/functions/playGame.js)
+[React](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Game/GameContainer.js)
+[Redux](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/store/levels/reducer.js)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Goals for this project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The goal of this project is to showcase my JavaScript skill by creating a puzzle game and working in an organized fashion.
+During this project i focused on:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- practicing correct usage of the more complex features of JavaScript
+- combine what i learned in the bootcamp with things i've learned in the past
+- practice a disciplined [workflow](#workflow)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Workflow
 
-## Learn More
+During this project i tried to use:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Good commit messages
+- Correctly named branches
+- Descriptive [pull requests](https://github.com/BrianBplusplus/Train-Await-Client/pull/5)
+- A [Trello board](https://trello.com/b/OakMNP3t/portfolio-project) to keep track of what im doing/still have to do
