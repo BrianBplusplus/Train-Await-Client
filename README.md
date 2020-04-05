@@ -25,10 +25,10 @@ If the train travels a longer distance you get a higher score however, rotating 
 
 Click on the links to see samples from this project
 
-[HTML & CSS](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Interface/EndScreenContainer.js)
-[JavaScript](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Game/functions/playGame.js)
-[React](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Game/GameContainer.js)
-[Redux](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/store/levels/reducer.js)
+- [HTML & CSS](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Interface/EndScreenContainer.js)
+- [JavaScript](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Game/functions/playGame.js)
+- [React](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/components/Game/GameContainer.js)
+- [Redux](https://github.com/BrianBplusplus/Train-Await-Client/blob/master/src/store/levels/reducer.js)
 
 ## Goals for this project
 
