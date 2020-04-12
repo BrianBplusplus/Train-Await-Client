@@ -19,7 +19,7 @@ If the train travels a longer distance you get a higher score however, rotating 
 
 ## Game demo
 
-![](trainawaitgif1.gif) ![](trainawaitgif2.gif)
+![](./src/images/trainawaitgif1.gif) ![](./src/images/trainawaitgif2.gif)
 
 ## Technologies used
 
